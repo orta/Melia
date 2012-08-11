@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2829" systemVersion="12A269" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1914"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="4">
             <objects>
                 <viewController id="2" customClass="ORViewController" sceneMemberID="viewController">
@@ -17,7 +17,134 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Album Finder View Controller-->
+        <scene sceneID="Hmz-HH-7wb">
+            <objects>
+                <viewController storyboardIdentifier="loginView" id="bvO-3Y-WYN" customClass="ORAlbumFinderViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="whz-G1-wxr">
+                        <rect key="frame" x="0.0" y="20" width="800" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView translatesAutoresizingMaskIntoConstraints="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="ljA-Zf-FhE">
+                                <color key="backgroundColor" red="0.60784316062927246" green="0.60784316062927246" blue="0.60784316062927246" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="712" id="h5H-ff-qeA"/>
+                                    <constraint firstAttribute="height" constant="400" id="zjr-bL-Y3B"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zF8-Lw-08P">
+                                    <size key="itemSize" width="172" height="172"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="albumView" reuseIdentifier="imageCell" id="jHd-fJ-ESx" customClass="ORAlbumView">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Label" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="43a-nG-TOv">
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                </label>
+                                                <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" id="EnB-9Z-QiK">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="118" id="7QP-SK-HIr"/>
+                                                        <constraint firstAttribute="width" constant="156" id="TQa-Vx-AZt"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.88030337591240881" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="43a-nG-TOv" secondAttribute="bottom" constant="12" id="3Yf-6l-iyx"/>
+                                            <constraint firstAttribute="trailing" secondItem="43a-nG-TOv" secondAttribute="trailing" constant="20" type="default" id="U29-88-Spx"/>
+                                            <constraint firstItem="EnB-9Z-QiK" firstAttribute="centerX" secondItem="43a-nG-TOv" secondAttribute="centerX" type="default" id="bdn-Hb-Fao"/>
+                                            <constraint firstItem="43a-nG-TOv" firstAttribute="leading" secondItem="jHd-fJ-ESx" secondAttribute="leading" constant="20" type="default" id="dp9-Sn-z7b"/>
+                                            <constraint firstItem="EnB-9Z-QiK" firstAttribute="top" secondItem="jHd-fJ-ESx" secondAttribute="top" constant="10" id="pic-w9-gvR"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="EnB-9Z-QiK" id="i5y-fm-t4j"/>
+                                            <outlet property="titleLabel" destination="43a-nG-TOv" id="7dr-RH-A7o"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <webView translatesAutoresizingMaskIntoConstraints="NO" contentMode="scaleToFill" id="qij-51-Pqg">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="gKj-Mk-M0k"/>
+                                    <constraint firstAttribute="height" constant="128" id="jKd-2n-jt9"/>
+                                </constraints>
+                            </webView>
+                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Pick your Albums" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="imd-J4-iAF">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="f1p-kQ-7C1"/>
+                                </constraints>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="32"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.023529414087533951" green="0.11764706671237946" blue="0.23137256503105164" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="ljA-Zf-FhE" firstAttribute="top" secondItem="whz-G1-wxr" secondAttribute="top" constant="155" id="4nM-N1-KuY"/>
+                            <constraint firstAttribute="trailing" secondItem="qij-51-Pqg" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="BhZ-eo-f4D"/>
+                            <constraint firstItem="ljA-Zf-FhE" firstAttribute="leading" secondItem="whz-G1-wxr" secondAttribute="leading" constant="40" id="VEe-su-epq"/>
+                            <constraint firstItem="imd-J4-iAF" firstAttribute="centerX" secondItem="ljA-Zf-FhE" secondAttribute="centerX" type="default" id="ct4-FC-3Xq"/>
+                            <constraint firstItem="imd-J4-iAF" firstAttribute="top" secondItem="whz-G1-wxr" secondAttribute="top" constant="40" id="pt2-0D-NEd"/>
+                            <constraint firstItem="qij-51-Pqg" firstAttribute="top" secondItem="whz-G1-wxr" secondAttribute="top" constant="7" id="qM5-EI-AUV"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="gridView" destination="ljA-Zf-FhE" id="IOc-I4-1O6"/>
+                        <outlet property="webView" destination="qij-51-Pqg" id="F3z-tS-aCj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U30-Ol-bee" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="991" y="24"/>
+        </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ORAlbumFinderViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAlbumFinderViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gridView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="ORAlbumView" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAlbumView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORViewController.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
