@@ -13,7 +13,12 @@ static NSString *MeliaSite = @"http://jamesmeliaphoto.zenfolio.com";
 static NSString *MeliaHomePage = @"http://jamesmeliaphoto.zenfolio.com/f634884173";
 
 @interface ORAlbumFinderViewController (){
-    NSArray *_albums;
+    NSMutableSet *_photos;
+    NSTimer *_parseTimer;
+    NSString *_albumTitle;
+
+    NSInteger _photoCount;
+    NSInteger _sameNumberCount;
 }
 
 @end
@@ -24,7 +29,6 @@ static NSString *MeliaHomePage = @"http://jamesmeliaphoto.zenfolio.com/f63488417
     [super viewDidLoad];
 
     self.webView.delegate = self;
-    self.gridView.dataSource = self;
 
     [self loadPage:MeliaHomePage];
 }
@@ -32,62 +36,80 @@ static NSString *MeliaHomePage = @"http://jamesmeliaphoto.zenfolio.com/f63488417
 - (void)loadPage:(NSString *)page {
     NSURL * url = [NSURL URLWithString:page];
     [_webView loadRequest:[NSURLRequest requestWithURL:url]];
-
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSLog(@"should start %@", request.URL);
+    if (![request.URL.absoluteString hasPrefix:MeliaSite]) {
+        [self loadPage:MeliaHomePage];
+    }
     return YES;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
     NSString *address = aWebView.request.URL.absoluteString;
-    NSLog(@"finished %@", address);
     
     if ([MeliaHomePage isEqualToString:address]) {
-        NSString *prefix = [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('folderCtr')[0].id"];
-        NSString *folderRequest = [NSString stringWithFormat:@"JSON.stringify(_zfl_%@_init.data.folder)", prefix];
-        NSString *JSONString = [_webView stringByEvaluatingJavaScriptFromString:folderRequest];
+        // do nothing
+    }else {
+        // Album page
+        _albumTitle = [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('title')[0].innerHTML"];
 
-        NSError *error = nil;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[JSONString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
-        if (error) {
-            NSLog(@"%@", NSStringFromSelector(_cmd));
-            NSLog(@"json parsing error.");
+        if([self isPasswordPage]){
+            [self performSelector:@selector(focusTextField) withObject:nil afterDelay:0.5];
+        }else {
+            _webView.alpha = 0.5;
+            _webView.userInteractionEnabled = NO;
+            [_activityIndicator startAnimating];
+            _titleLabel.text = [NSString stringWithFormat:@"Getting images for %@", _albumTitle]; 
+
+            // Show all images
+            [_webView stringByEvaluatingJavaScriptFromString:@"$('#ctl02_Pager-a').mousedown()"];
+            _photos = [NSMutableSet set];
+
+            _parseTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(backgroundParseWebviewForPhotos) userInfo:nil repeats:YES];
+            [_parseTimer fire];
         }
-        [self getFoldersFromJSON:json];
     }
 }
 
-- (void)getFoldersFromJSON: (NSDictionary *)dictionary {
-    NSMutableArray *mutableAlbums = [NSMutableArray array];
-    for (NSDictionary *folder in dictionary[@"$root"]) {
-        NSDictionary *image = folder[@"image"];
-        Album *album = [[Album alloc] init];
-        album.title = folder[@"title"];
-        NSString *cdnPath = [image[@"cdnPath"] stringByReplacingOccurrencesOfString:@"68jutwm64p1z" withString:@"jtrpzlbelhga"];
-        NSString *address = [NSString stringWithFormat:@"%@/cdn%@/s11/v%@/%@%@-11.jpg", MeliaSite, cdnPath, image[@"_mapper"][@"_default"],image[@"prefix"], image[@"id"] ];
-        album.thumbnailImageAddress = address;
-        [mutableAlbums addObject:album];
+- (void)focusTextField {
+    [_webView stringByEvaluatingJavaScriptFromString:@"$('input:text:visible:first').focus();"];
+}
+
+- (void)backgroundParseWebviewForPhotos {
+    NSString *theGridHTML = [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('defdec')[0].innerHTML.toString()"];
+    NSArray *splitHTMLAtImage = [theGridHTML componentsSeparatedByString:@"background-image:url("];
+    for (int i = 1; i < splitHTMLAtImage.count; i++) {
+        NSString *path = [splitHTMLAtImage[i] componentsSeparatedByString:@");"][0];
+        if (![_photos containsObject:path]) {
+            [_photos addObject:path];
+        }
     }
-    _albums = mutableAlbums;
-    [self.gridView reloadData];
+    NSInteger oldPhotoCount = _photoCount;
+    _photoCount = _photos.count;
+    if (oldPhotoCount == _photoCount) {
+        _sameNumberCount++;
+        if (_sameNumberCount == 3) {
+            [_parseTimer invalidate];
+            [_delegate albumFinder:self didFindAlbumWithName:_albumTitle andURLs:_photos];
+            NSLog(@"Got all the photos");
+        }
+    }else{
+        _sameNumberCount = 0;
+    }
+    _photoCount = _photoCount;
+    NSLog(@" %i ", _photos.count);
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ORAlbumView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCell" forIndexPath:indexPath];
-    cell.album = _albums[indexPath.row];
-    return cell;
+- (BOOL)isPasswordPage {
+    return [[_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('password2-frame').length.toString()"] integerValue];
 }
 
-- (int)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _albums.count;
-}
 
+- (void)viewDidUnload {
+    [self setTitleLabel:nil];
+    [self setActivityIndicator:nil];
+    [super viewDidUnload];
+}
 @end

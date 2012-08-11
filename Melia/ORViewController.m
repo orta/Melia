@@ -7,6 +7,8 @@
 //
 
 #import "ORViewController.h"
+#import "ORAlbumSyncViewController.h"
+#import "ORAlbumFinderViewController.h"
 
 @interface ORViewController ()
 
@@ -19,11 +21,25 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    UIViewController *loginVC = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginView"];
+    ORAlbumFinderViewController *loginVC = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginView"];
+    loginVC.delegate = self;
+    [self presentModalViewController:loginVC animated:YES];
+}
 
-    [self presentViewController:loginVC animated:YES completion:^{
-
+- (void)albumFinder:(ORAlbumFinderViewController *)finder didFindAlbumWithName:(NSString *)name andURLs:(NSSet *)urls {
+    [self dismissViewControllerAnimated:YES completion:^{
+        ORAlbumSyncViewController *sync = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"syncView"];
+        sync.name = name;
+        sync.urls = urls;
+        [self presentModalViewController:sync animated:YES];
     }];
 }
+
+- (void)albumSyncDidFinish:(ORAlbumSyncViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:^{}];
+
+    
+}
+
 
 @end

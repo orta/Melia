@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 orta therox. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ORAlbumFinderViewController.h"
 
-@interface ORViewController : UIViewController
+@interface ORViewController : UIViewController <ORAlbumFinderDelegate>
 
 @end
