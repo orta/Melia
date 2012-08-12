@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GMGridView.h"
+#import "JDSlideshow.h"
+#import "JDSlideshowDelegate.h"
 
-@interface ORAlbumViewController : UIViewController <GMGridViewActionDelegate, GMGridViewDataSource>
+@interface ORAlbumViewController : UIViewController <GMGridViewActionDelegate, GMGridViewDataSource, JDSlideshowDelegate, UIScrollViewDelegate>
 @property NSString *folderPath;
-
 @end

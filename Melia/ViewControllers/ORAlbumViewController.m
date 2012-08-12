@@ -14,6 +14,7 @@
 #import "NSFileManager+PathHandling.h"
 #import "NSFileManager+AppDirectories.h"
 #import "ORImageViewCell.h"
+#import "JDSlideshowViewController.h"
 
 static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
@@ -28,7 +29,7 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _gridView = [[GMGridView alloc] initWithFrame:self.view.frame];
+    _gridView = [[GMGridView alloc] initWithFrame:self.view.bounds];
     _gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _gridView.autoresizesSubviews = YES;
     _gridView.actionDelegate = self;
@@ -66,19 +67,47 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
     cell.title = @"";
 
-
-    NSString *imagePath = [_photos objectAtIndex:index];
-    NSString *image = [_folderPath stringByAppendingPathComponent:imagePath];
-    cell.image = [UIImage imageWithContentsOfFile:image];
+    cell.image = [UIImage imageWithContentsOfFile:[self imagePathAtIndex:index]];
 
     return cell;
 }
 
+- (NSString *)imagePathAtIndex:(NSInteger)index {
+    NSString *imagePath = [_photos objectAtIndex:index];
+    return [_folderPath stringByAppendingPathComponent:imagePath];
+}
+
 #pragma mark -
-#pragma mark Gridview Delegate
+#pragma mark Slideshow
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
+    JDSlideshowViewController *slideshow = [[JDSlideshowViewController alloc]initWithSlideshowStyle:JDSlideshowStyleQuick];
+    slideshow.delegate = self;
 
+    [self.navigationController pushViewController:slideshow animated:YES];
+    [slideshow navigateToSlideIndex:position animated:NO];
 }
+
+- (void) slideshow:(id<JDSlideshow>)theSlideshow fetchContentForSlideAtIndex:(NSUInteger)index {
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [scrollView addSubview:imageView];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+
+    UIImage *image = [UIImage imageWithContentsOfFile:[self imagePathAtIndex:index]];
+    scrollView.contentSize = image.size;
+    imageView.image = image;
+
+    [theSlideshow loadView:scrollView forSlideAtIndex:index];
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return [[scrollView subviews] objectAtIndex:0];
+}
+
+- (NSUInteger) slideshowNumberOfSlides:(id<JDSlideshow>)theSlideshow {
+    return _photos.count;
+}
+
 
 @end

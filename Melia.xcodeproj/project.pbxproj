@@ -15,6 +15,23 @@
 		602026BD15D727AE00284FD5 /* NSFileManager+PathHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026BC15D727AE00284FD5 /* NSFileManager+PathHandling.m */; };
 		602026C115D72A0500284FD5 /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026C015D72A0500284FD5 /* ORImageViewCell.m */; };
 		602026C415D7384900284FD5 /* ORAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026C315D7384900284FD5 /* ORAlbumViewController.m */; };
+		6020270815D74B1700284FD5 /* JDSlideshowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026F315D74B1700284FD5 /* JDSlideshowController.m */; };
+		6020270915D74B1700284FD5 /* JDSlideshowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026F715D74B1700284FD5 /* JDSlideshowView.m */; };
+		6020270A15D74B1700284FD5 /* JDSlideshowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026F915D74B1700284FD5 /* JDSlideshowViewController.m */; };
+		6020270B15D74B1700284FD5 /* JDSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026FC15D74B1700284FD5 /* JDSlideView.m */; };
+		6020270C15D74B1700284FD5 /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 602026FE15D74B1700284FD5 /* leftArrow.png */; };
+		6020270D15D74B1700284FD5 /* leftArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 602026FF15D74B1700284FD5 /* leftArrow@2x.png */; };
+		6020270E15D74B1700284FD5 /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020270015D74B1700284FD5 /* playButton.png */; };
+		6020270F15D74B1700284FD5 /* playButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020270115D74B1700284FD5 /* playButton@2x.png */; };
+		6020271015D74B1700284FD5 /* playButtonHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020270215D74B1700284FD5 /* playButtonHighlighted.png */; };
+		6020271115D74B1700284FD5 /* playButtonHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020270315D74B1700284FD5 /* playButtonHighlighted@2x.png */; };
+		6020271215D74B1700284FD5 /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020270415D74B1700284FD5 /* rightArrow.png */; };
+		6020271315D74B1700284FD5 /* rightArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020270515D74B1700284FD5 /* rightArrow@2x.png */; };
+		6020271415D74B1700284FD5 /* stopIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020270615D74B1700284FD5 /* stopIcon.png */; };
+		6020271515D74B1700284FD5 /* stopIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020270715D74B1700284FD5 /* stopIcon@2x.png */; };
+		6020271F15D7518200284FD5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6020271E15D7518200284FD5 /* AVFoundation.framework */; };
+		6020272115D751CE00284FD5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6020272015D751CE00284FD5 /* MediaPlayer.framework */; };
+		6020272315D751F200284FD5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6020272215D751F200284FD5 /* CoreMedia.framework */; };
 		60F17E0015D30BEF0072FA37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17DFF15D30BEF0072FA37 /* UIKit.framework */; };
 		60F17E0215D30BEF0072FA37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17E0115D30BEF0072FA37 /* Foundation.framework */; };
 		60F17E0415D30BEF0072FA37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17E0315D30BEF0072FA37 /* CoreGraphics.framework */; };
@@ -42,6 +59,32 @@
 		602026C015D72A0500284FD5 /* ORImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORImageViewCell.m; path = Views/ORImageViewCell.m; sourceTree = "<group>"; };
 		602026C215D7384900284FD5 /* ORAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAlbumViewController.h; path = ViewControllers/ORAlbumViewController.h; sourceTree = "<group>"; };
 		602026C315D7384900284FD5 /* ORAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAlbumViewController.m; path = ViewControllers/ORAlbumViewController.m; sourceTree = "<group>"; };
+		602026F115D74B1700284FD5 /* JDSlideshow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSlideshow.h; sourceTree = "<group>"; };
+		602026F215D74B1700284FD5 /* JDSlideshowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSlideshowController.h; sourceTree = "<group>"; };
+		602026F315D74B1700284FD5 /* JDSlideshowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDSlideshowController.m; sourceTree = "<group>"; };
+		602026F415D74B1700284FD5 /* JDSlideshowControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSlideshowControllerDelegate.h; sourceTree = "<group>"; };
+		602026F515D74B1700284FD5 /* JDSlideshowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSlideshowDelegate.h; sourceTree = "<group>"; };
+		602026F615D74B1700284FD5 /* JDSlideshowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSlideshowView.h; sourceTree = "<group>"; };
+		602026F715D74B1700284FD5 /* JDSlideshowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDSlideshowView.m; sourceTree = "<group>"; };
+		602026F815D74B1700284FD5 /* JDSlideshowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSlideshowViewController.h; sourceTree = "<group>"; };
+		602026F915D74B1700284FD5 /* JDSlideshowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDSlideshowViewController.m; sourceTree = "<group>"; };
+		602026FA15D74B1700284FD5 /* JDSlideshowViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSlideshowViewDelegate.h; sourceTree = "<group>"; };
+		602026FB15D74B1700284FD5 /* JDSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSlideView.h; sourceTree = "<group>"; };
+		602026FC15D74B1700284FD5 /* JDSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDSlideView.m; sourceTree = "<group>"; };
+		602026FD15D74B1700284FD5 /* JDSlideViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSlideViewDelegate.h; sourceTree = "<group>"; };
+		602026FE15D74B1700284FD5 /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrow.png; sourceTree = "<group>"; };
+		602026FF15D74B1700284FD5 /* leftArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leftArrow@2x.png"; sourceTree = "<group>"; };
+		6020270015D74B1700284FD5 /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButton.png; sourceTree = "<group>"; };
+		6020270115D74B1700284FD5 /* playButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playButton@2x.png"; sourceTree = "<group>"; };
+		6020270215D74B1700284FD5 /* playButtonHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButtonHighlighted.png; sourceTree = "<group>"; };
+		6020270315D74B1700284FD5 /* playButtonHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playButtonHighlighted@2x.png"; sourceTree = "<group>"; };
+		6020270415D74B1700284FD5 /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow.png; sourceTree = "<group>"; };
+		6020270515D74B1700284FD5 /* rightArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightArrow@2x.png"; sourceTree = "<group>"; };
+		6020270615D74B1700284FD5 /* stopIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopIcon.png; sourceTree = "<group>"; };
+		6020270715D74B1700284FD5 /* stopIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stopIcon@2x.png"; sourceTree = "<group>"; };
+		6020271E15D7518200284FD5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6020272015D751CE00284FD5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		6020272215D751F200284FD5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		60F17DFB15D30BEF0072FA37 /* Melia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F17DFF15D30BEF0072FA37 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60F17E0115D30BEF0072FA37 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,6 +108,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6020272315D751F200284FD5 /* CoreMedia.framework in Frameworks */,
+				6020272115D751CE00284FD5 /* MediaPlayer.framework in Frameworks */,
+				6020271F15D7518200284FD5 /* AVFoundation.framework in Frameworks */,
 				60F17E0015D30BEF0072FA37 /* UIKit.framework in Frameworks */,
 				60F17E0215D30BEF0072FA37 /* Foundation.framework in Frameworks */,
 				60F17E0415D30BEF0072FA37 /* CoreGraphics.framework in Frameworks */,
@@ -78,6 +124,7 @@
 		601C19F515D6D734001E4398 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				602026F015D74B1700284FD5 /* JDSlideshow */,
 				601C19F915D6DAEC001E4398 /* NSFileManager+AppDirectories.h */,
 				601C19FA15D6DAEC001E4398 /* NSFileManager+AppDirectories.m */,
 				601C19F615D6D74F001E4398 /* NSFileManager+SkipBackup.h */,
@@ -90,9 +137,42 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		602026F015D74B1700284FD5 /* JDSlideshow */ = {
+			isa = PBXGroup;
+			children = (
+				602026F115D74B1700284FD5 /* JDSlideshow.h */,
+				602026F215D74B1700284FD5 /* JDSlideshowController.h */,
+				602026F315D74B1700284FD5 /* JDSlideshowController.m */,
+				602026F415D74B1700284FD5 /* JDSlideshowControllerDelegate.h */,
+				602026F515D74B1700284FD5 /* JDSlideshowDelegate.h */,
+				602026F615D74B1700284FD5 /* JDSlideshowView.h */,
+				602026F715D74B1700284FD5 /* JDSlideshowView.m */,
+				602026F815D74B1700284FD5 /* JDSlideshowViewController.h */,
+				602026F915D74B1700284FD5 /* JDSlideshowViewController.m */,
+				602026FA15D74B1700284FD5 /* JDSlideshowViewDelegate.h */,
+				602026FB15D74B1700284FD5 /* JDSlideView.h */,
+				602026FC15D74B1700284FD5 /* JDSlideView.m */,
+				602026FD15D74B1700284FD5 /* JDSlideViewDelegate.h */,
+				602026FE15D74B1700284FD5 /* leftArrow.png */,
+				602026FF15D74B1700284FD5 /* leftArrow@2x.png */,
+				6020270015D74B1700284FD5 /* playButton.png */,
+				6020270115D74B1700284FD5 /* playButton@2x.png */,
+				6020270215D74B1700284FD5 /* playButtonHighlighted.png */,
+				6020270315D74B1700284FD5 /* playButtonHighlighted@2x.png */,
+				6020270415D74B1700284FD5 /* rightArrow.png */,
+				6020270515D74B1700284FD5 /* rightArrow@2x.png */,
+				6020270615D74B1700284FD5 /* stopIcon.png */,
+				6020270715D74B1700284FD5 /* stopIcon@2x.png */,
+			);
+			path = JDSlideshow;
+			sourceTree = "<group>";
+		};
 		60F17DF015D30BEF0072FA37 = {
 			isa = PBXGroup;
 			children = (
+				6020272215D751F200284FD5 /* CoreMedia.framework */,
+				6020272015D751CE00284FD5 /* MediaPlayer.framework */,
+				6020271E15D7518200284FD5 /* AVFoundation.framework */,
 				60F17E0515D30BEF0072FA37 /* Melia */,
 				60F17DFE15D30BEF0072FA37 /* Frameworks */,
 				60F17DFC15D30BEF0072FA37 /* Products */,
@@ -148,14 +228,14 @@
 		60F17E1F15D30DC20072FA37 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				60F17E1415D30BEF0072FA37 /* ORCollectionViewController.h */,
-				60F17E1515D30BEF0072FA37 /* ORCollectionViewController.m */,
 				60F17E1C15D30DBE0072FA37 /* ORAlbumFinderViewController.h */,
 				60F17E1D15D30DBE0072FA37 /* ORAlbumFinderViewController.m */,
 				601C19E715D6CF9B001E4398 /* ORAlbumSyncViewController.h */,
 				601C19E815D6CF9B001E4398 /* ORAlbumSyncViewController.m */,
 				602026C215D7384900284FD5 /* ORAlbumViewController.h */,
 				602026C315D7384900284FD5 /* ORAlbumViewController.m */,
+				60F17E1415D30BEF0072FA37 /* ORCollectionViewController.h */,
+				60F17E1515D30BEF0072FA37 /* ORCollectionViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -231,6 +311,16 @@
 			files = (
 				60F17E0A15D30BEF0072FA37 /* InfoPlist.strings in Resources */,
 				60F17E1315D30BEF0072FA37 /* MainStoryboard.storyboard in Resources */,
+				6020270C15D74B1700284FD5 /* leftArrow.png in Resources */,
+				6020270D15D74B1700284FD5 /* leftArrow@2x.png in Resources */,
+				6020270E15D74B1700284FD5 /* playButton.png in Resources */,
+				6020270F15D74B1700284FD5 /* playButton@2x.png in Resources */,
+				6020271015D74B1700284FD5 /* playButtonHighlighted.png in Resources */,
+				6020271115D74B1700284FD5 /* playButtonHighlighted@2x.png in Resources */,
+				6020271215D74B1700284FD5 /* rightArrow.png in Resources */,
+				6020271315D74B1700284FD5 /* rightArrow@2x.png in Resources */,
+				6020271415D74B1700284FD5 /* stopIcon.png in Resources */,
+				6020271515D74B1700284FD5 /* stopIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +359,10 @@
 				602026BD15D727AE00284FD5 /* NSFileManager+PathHandling.m in Sources */,
 				602026C115D72A0500284FD5 /* ORImageViewCell.m in Sources */,
 				602026C415D7384900284FD5 /* ORAlbumViewController.m in Sources */,
+				6020270815D74B1700284FD5 /* JDSlideshowController.m in Sources */,
+				6020270915D74B1700284FD5 /* JDSlideshowView.m in Sources */,
+				6020270A15D74B1700284FD5 /* JDSlideshowViewController.m in Sources */,
+				6020270B15D74B1700284FD5 /* JDSlideView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

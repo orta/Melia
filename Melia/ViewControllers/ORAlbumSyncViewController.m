@@ -42,6 +42,9 @@
         ARFileDownloadOperation *fileDownloadOperation = [ARFileDownloadOperation fileDownloadFromURL:[NSURL URLWithString:address] toLocalPath:localPath];
         [fileDownloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             [self.imageView setImage:[UIImage imageWithContentsOfFile:localPath]];
+            if (downloadQueue.operationCount == 0) {
+                [self.delegate albumSyncDidFinish:self];
+            }
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Download for %@ failed - %@", address, error);

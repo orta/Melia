@@ -28,7 +28,7 @@ static CGSize GridCellSize = { .width = 360, .height = 300 };
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _gridView = [[GMGridView alloc] initWithFrame:self.view.frame];
+    _gridView = [[GMGridView alloc] initWithFrame:self.view.bounds];
     _gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _gridView.autoresizesSubviews = YES;
     _gridView.actionDelegate = self;
@@ -42,14 +42,21 @@ static CGSize GridCellSize = { .width = 360, .height = 300 };
     NSString *path = [manager applicationDocumentsDirectoryPath];
     _folders = [manager foldersInFolder:path];
     [_gridView reloadData];
+
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(openFolderChooser)];
+    self.navigationItem.leftBarButtonItem = button;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     if(_folders.count == 0){
-        ORAlbumFinderViewController *loginVC = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginView"];
-        loginVC.delegate = self;
-        [self presentModalViewController:loginVC animated:YES];
+        [self openFolderChooser];
     }
+}
+
+- (void)openFolderChooser {
+    ORAlbumFinderViewController *loginVC = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginView"];
+    loginVC.delegate = self;
+    [self presentModalViewController:loginVC animated:YES];
 }
 
 - (void)albumFinder:(ORAlbumFinderViewController *)finder didFindAlbumWithName:(NSString *)name andURLs:(NSSet *)urls {
@@ -107,6 +114,8 @@ static CGSize GridCellSize = { .width = 360, .height = 300 };
     NSString *folderPath = [_folders objectAtIndex:position];
     NSString *docs = [[NSFileManager defaultManager] applicationDocumentsDirectoryPath];
     controller.folderPath = [[docs stringByAppendingPathComponent:folderPath] stringByAppendingPathComponent:@"images"];
+//    controller.title = [[[docs stringByAppendingPathComponent:folderPath] lastObject] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+
     [self.navigationController pushViewController:controller animated:YES];
 }
 
