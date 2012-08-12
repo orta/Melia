@@ -11,4 +11,12 @@
 @interface NSFileManager (PathHandling)
 - (NSArray *)filesInFolder:(NSString *)path withExtension:(NSString *)extension;
 - (NSArray *)foldersInFolder:(NSString *)path;
+
+
+- (NSString *)applicationDocumentsDirectoryPath;
+- (NSString *)applicationCachesDirectoryPath;
+- (NSArray *)contentsOfPath:(NSString *)path;
+- (NSString *) filePathWithFolder:(NSString *)folderName
+                         filename:(NSString *)imageName
+                        extension:(NSString *)extension;
 @end

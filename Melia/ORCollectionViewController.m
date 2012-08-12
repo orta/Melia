@@ -10,7 +10,6 @@
 #import "ORAlbumSyncViewController.h"
 #import "ORAlbumFinderViewController.h"
 #import "NSFileManager+PathHandling.h"
-#import "NSFileManager+AppDirectories.h"
 #import "ORImageViewCell.h"
 #import "ORAlbumViewController.h"
 
@@ -51,6 +50,10 @@ static CGSize GridCellSize = { .width = 360, .height = 300 };
     if(_folders.count == 0){
         [self openFolderChooser];
     }
+    if (_folders.count == 1 && !animated) {
+        [self loadAlbumViewForItemAtIndex:0 animated:YES];
+    }
+
 }
 
 - (void)openFolderChooser {
@@ -110,17 +113,26 @@ static CGSize GridCellSize = { .width = 360, .height = 300 };
 #pragma mark Gridview Delegate
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
+    [self loadAlbumViewForItemAtIndex:position animated:YES];
+}
+
+- (void)loadAlbumViewForItemAtIndex:(NSInteger)index animated:(BOOL)animated {
     ORAlbumViewController *controller = [[ORAlbumViewController alloc] init];
-    NSString *folderPath = [_folders objectAtIndex:position];
+    NSString *folderPath = [_folders objectAtIndex:index];
     NSString *docs = [[NSFileManager defaultManager] applicationDocumentsDirectoryPath];
     controller.folderPath = [[docs stringByAppendingPathComponent:folderPath] stringByAppendingPathComponent:@"images"];
-//    controller.title = [[[docs stringByAppendingPathComponent:folderPath] lastObject] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
-
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:animated];
 }
 
 - (void)GMGridView:(GMGridView *)gridView processDeleteActionForItemAtIndex:(NSInteger)index {
     NSLog(@"Delete");
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
+
+
 
 @end

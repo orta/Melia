@@ -10,6 +10,14 @@
 
 @implementation NSFileManager (PathHandling)
 
+- (NSString *)applicationDocumentsDirectoryPath {
+    return [[[self URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] path];
+}
+
+- (NSString *)applicationCachesDirectoryPath {
+    return [[[self URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject] path];
+}
+
 - (NSArray *)contentsOfPath:(NSString *)path {
     NSError *error = nil;
     NSArray *dirContents = [self contentsOfDirectoryAtPath:path error:&error];
@@ -35,6 +43,23 @@
         return NO;
     }];
 	return [dirContents objectsAtIndexes:folderIndexes];
+}
+
+
+- (NSString *) filePathWithFolder:(NSString *)folderName
+                        filename:(NSString *)imageName
+                       extension:(NSString *)extension {
+    
+    NSString *directory = [[NSString alloc] initWithFormat:@"%@/%@", [self applicationDocumentsDirectoryPath], folderName];
+    if (![self fileExistsAtPath:directory isDirectory:nil]) {
+        NSError *error = nil;
+        [self createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:&error];
+        if (error) {
+            NSLog(@"Error creating directory at path %@", folderName);
+            NSLog(@"%@", [error userInfo]);
+        }
+    }
+    return [[NSString alloc] initWithFormat:@"%@/%@.%@", directory, imageName, extension];
 }
 
 

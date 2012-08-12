@@ -12,7 +12,6 @@
 #import "ORAlbumSyncViewController.h"
 #import "ORAlbumFinderViewController.h"
 #import "NSFileManager+PathHandling.h"
-#import "NSFileManager+AppDirectories.h"
 #import "ORImageViewCell.h"
 #import "JDSlideshowViewController.h"
 
@@ -67,8 +66,8 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
     cell.title = @"";
 
-    cell.image = [UIImage imageWithContentsOfFile:[self imagePathAtIndex:index]];
-
+    NSString *imagePath = [self imagePathAtIndex:index];
+    cell.image = [UIImage imageWithContentsOfFile:[imagePath stringByReplacingOccurrencesOfString:@"/images/" withString:@"/thumbnails/"]];
     return cell;
 }
 
@@ -93,6 +92,7 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     [scrollView addSubview:imageView];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
     UIImage *image = [UIImage imageWithContentsOfFile:[self imagePathAtIndex:index]];
     scrollView.contentSize = image.size;
@@ -108,6 +108,12 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 - (NSUInteger) slideshowNumberOfSlides:(id<JDSlideshow>)theSlideshow {
     return _photos.count;
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
+
 
 
 @end

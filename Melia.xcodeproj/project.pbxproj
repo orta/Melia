@@ -11,7 +11,6 @@
 		601C19E915D6CF9B001E4398 /* ORAlbumSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19E815D6CF9B001E4398 /* ORAlbumSyncViewController.m */; };
 		601C19F415D6D730001E4398 /* ARFileDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19F315D6D730001E4398 /* ARFileDownloadOperation.m */; };
 		601C19F815D6D74F001E4398 /* NSFileManager+SkipBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19F715D6D74F001E4398 /* NSFileManager+SkipBackup.m */; };
-		601C19FB15D6DAEC001E4398 /* NSFileManager+AppDirectories.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19FA15D6DAEC001E4398 /* NSFileManager+AppDirectories.m */; };
 		602026BD15D727AE00284FD5 /* NSFileManager+PathHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026BC15D727AE00284FD5 /* NSFileManager+PathHandling.m */; };
 		602026C115D72A0500284FD5 /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026C015D72A0500284FD5 /* ORImageViewCell.m */; };
 		602026C415D7384900284FD5 /* ORAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026C315D7384900284FD5 /* ORAlbumViewController.m */; };
@@ -32,6 +31,7 @@
 		6020271F15D7518200284FD5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6020271E15D7518200284FD5 /* AVFoundation.framework */; };
 		6020272115D751CE00284FD5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6020272015D751CE00284FD5 /* MediaPlayer.framework */; };
 		6020272315D751F200284FD5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6020272215D751F200284FD5 /* CoreMedia.framework */; };
+		6020272E15D7B3A300284FD5 /* ORThumbnailOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020272D15D7B3A200284FD5 /* ORThumbnailOperation.m */; };
 		60F17E0015D30BEF0072FA37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17DFF15D30BEF0072FA37 /* UIKit.framework */; };
 		60F17E0215D30BEF0072FA37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17E0115D30BEF0072FA37 /* Foundation.framework */; };
 		60F17E0415D30BEF0072FA37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17E0315D30BEF0072FA37 /* CoreGraphics.framework */; };
@@ -51,8 +51,6 @@
 		601C19F315D6D730001E4398 /* ARFileDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFileDownloadOperation.m; sourceTree = "<group>"; };
 		601C19F615D6D74F001E4398 /* NSFileManager+SkipBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SkipBackup.h"; sourceTree = "<group>"; };
 		601C19F715D6D74F001E4398 /* NSFileManager+SkipBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SkipBackup.m"; sourceTree = "<group>"; };
-		601C19F915D6DAEC001E4398 /* NSFileManager+AppDirectories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+AppDirectories.h"; sourceTree = "<group>"; };
-		601C19FA15D6DAEC001E4398 /* NSFileManager+AppDirectories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+AppDirectories.m"; sourceTree = "<group>"; };
 		602026BB15D727AE00284FD5 /* NSFileManager+PathHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+PathHandling.h"; sourceTree = "<group>"; };
 		602026BC15D727AE00284FD5 /* NSFileManager+PathHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+PathHandling.m"; sourceTree = "<group>"; };
 		602026BF15D72A0500284FD5 /* ORImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORImageViewCell.h; path = Views/ORImageViewCell.h; sourceTree = "<group>"; };
@@ -85,6 +83,8 @@
 		6020271E15D7518200284FD5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6020272015D751CE00284FD5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		6020272215D751F200284FD5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		6020272C15D7B3A000284FD5 /* ORThumbnailOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORThumbnailOperation.h; sourceTree = "<group>"; };
+		6020272D15D7B3A200284FD5 /* ORThumbnailOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORThumbnailOperation.m; sourceTree = "<group>"; };
 		60F17DFB15D30BEF0072FA37 /* Melia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F17DFF15D30BEF0072FA37 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60F17E0115D30BEF0072FA37 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -125,14 +125,14 @@
 			isa = PBXGroup;
 			children = (
 				602026F015D74B1700284FD5 /* JDSlideshow */,
-				601C19F915D6DAEC001E4398 /* NSFileManager+AppDirectories.h */,
-				601C19FA15D6DAEC001E4398 /* NSFileManager+AppDirectories.m */,
 				601C19F615D6D74F001E4398 /* NSFileManager+SkipBackup.h */,
 				601C19F715D6D74F001E4398 /* NSFileManager+SkipBackup.m */,
 				601C19F215D6D730001E4398 /* ARFileDownloadOperation.h */,
 				601C19F315D6D730001E4398 /* ARFileDownloadOperation.m */,
 				602026BB15D727AE00284FD5 /* NSFileManager+PathHandling.h */,
 				602026BC15D727AE00284FD5 /* NSFileManager+PathHandling.m */,
+				6020272C15D7B3A000284FD5 /* ORThumbnailOperation.h */,
+				6020272D15D7B3A200284FD5 /* ORThumbnailOperation.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -259,9 +259,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		60F17DFA15D30BEF0072FA37 /* Melia */ = {
+		60F17DFA15D30BEF0072FA37 /* The Melia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60F17E1915D30BEF0072FA37 /* Build configuration list for PBXNativeTarget "Melia" */;
+			buildConfigurationList = 60F17E1915D30BEF0072FA37 /* Build configuration list for PBXNativeTarget "The Melia" */;
 			buildPhases = (
 				60F17DF715D30BEF0072FA37 /* Sources */,
 				60F17DF815D30BEF0072FA37 /* Frameworks */,
@@ -272,7 +272,7 @@
 			);
 			dependencies = (
 			);
-			name = Melia;
+			name = "The Melia";
 			productName = Melia;
 			productReference = 60F17DFB15D30BEF0072FA37 /* Melia.app */;
 			productType = "com.apple.product-type.application";
@@ -299,7 +299,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				60F17DFA15D30BEF0072FA37 /* Melia */,
+				60F17DFA15D30BEF0072FA37 /* The Melia */,
 			);
 		};
 /* End PBXProject section */
@@ -355,7 +355,6 @@
 				601C19E915D6CF9B001E4398 /* ORAlbumSyncViewController.m in Sources */,
 				601C19F415D6D730001E4398 /* ARFileDownloadOperation.m in Sources */,
 				601C19F815D6D74F001E4398 /* NSFileManager+SkipBackup.m in Sources */,
-				601C19FB15D6DAEC001E4398 /* NSFileManager+AppDirectories.m in Sources */,
 				602026BD15D727AE00284FD5 /* NSFileManager+PathHandling.m in Sources */,
 				602026C115D72A0500284FD5 /* ORImageViewCell.m in Sources */,
 				602026C415D7384900284FD5 /* ORAlbumViewController.m in Sources */,
@@ -363,6 +362,7 @@
 				6020270915D74B1700284FD5 /* JDSlideshowView.m in Sources */,
 				6020270A15D74B1700284FD5 /* JDSlideshowViewController.m in Sources */,
 				6020270B15D74B1700284FD5 /* JDSlideView.m in Sources */,
+				6020272E15D7B3A300284FD5 /* ORThumbnailOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +483,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60F17E1915D30BEF0072FA37 /* Build configuration list for PBXNativeTarget "Melia" */ = {
+		60F17E1915D30BEF0072FA37 /* Build configuration list for PBXNativeTarget "The Melia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60F17E1A15D30BEF0072FA37 /* Debug */,
