@@ -7,10 +7,10 @@
 //
 
 #import "ORAlbumFinderViewController.h"
-#import "ORAlbumView.h"
 
 static NSString *MeliaSite = @"http://jamesmeliaphoto.zenfolio.com";
 static NSString *MeliaHomePage = @"http://jamesmeliaphoto.zenfolio.com/f634884173";
+
 
 @interface ORAlbumFinderViewController (){
     NSMutableSet *_photos;
@@ -39,7 +39,6 @@ static NSString *MeliaHomePage = @"http://jamesmeliaphoto.zenfolio.com/f63488417
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"should start %@", request.URL);
     if (![request.URL.absoluteString hasPrefix:MeliaSite]) {
         [self loadPage:MeliaHomePage];
     }

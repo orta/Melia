@@ -12,7 +12,9 @@
 		601C19F415D6D730001E4398 /* ARFileDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19F315D6D730001E4398 /* ARFileDownloadOperation.m */; };
 		601C19F815D6D74F001E4398 /* NSFileManager+SkipBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19F715D6D74F001E4398 /* NSFileManager+SkipBackup.m */; };
 		601C19FB15D6DAEC001E4398 /* NSFileManager+AppDirectories.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19FA15D6DAEC001E4398 /* NSFileManager+AppDirectories.m */; };
-		6020269B15D6FFF300284FD5 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6020269A15D6FFF300284FD5 /* libcurl.a */; };
+		602026BD15D727AE00284FD5 /* NSFileManager+PathHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026BC15D727AE00284FD5 /* NSFileManager+PathHandling.m */; };
+		602026C115D72A0500284FD5 /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026C015D72A0500284FD5 /* ORImageViewCell.m */; };
+		602026C415D7384900284FD5 /* ORAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026C315D7384900284FD5 /* ORAlbumViewController.m */; };
 		60F17E0015D30BEF0072FA37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17DFF15D30BEF0072FA37 /* UIKit.framework */; };
 		60F17E0215D30BEF0072FA37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17E0115D30BEF0072FA37 /* Foundation.framework */; };
 		60F17E0415D30BEF0072FA37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17E0315D30BEF0072FA37 /* CoreGraphics.framework */; };
@@ -20,10 +22,8 @@
 		60F17E0C15D30BEF0072FA37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F17E0B15D30BEF0072FA37 /* main.m */; };
 		60F17E1015D30BEF0072FA37 /* ORAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F17E0F15D30BEF0072FA37 /* ORAppDelegate.m */; };
 		60F17E1315D30BEF0072FA37 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F17E1115D30BEF0072FA37 /* MainStoryboard.storyboard */; };
-		60F17E1615D30BEF0072FA37 /* ORViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F17E1515D30BEF0072FA37 /* ORViewController.m */; };
+		60F17E1615D30BEF0072FA37 /* ORCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F17E1515D30BEF0072FA37 /* ORCollectionViewController.m */; };
 		60F17E1E15D30DBE0072FA37 /* ORAlbumFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F17E1D15D30DBE0072FA37 /* ORAlbumFinderViewController.m */; };
-		60F17E2715D3133F0072FA37 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F17E2615D3133F0072FA37 /* Album.m */; };
-		60F17E2B15D316F60072FA37 /* ORAlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F17E2A15D316F60072FA37 /* ORAlbumView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,15 +36,12 @@
 		601C19F715D6D74F001E4398 /* NSFileManager+SkipBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SkipBackup.m"; sourceTree = "<group>"; };
 		601C19F915D6DAEC001E4398 /* NSFileManager+AppDirectories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+AppDirectories.h"; sourceTree = "<group>"; };
 		601C19FA15D6DAEC001E4398 /* NSFileManager+AppDirectories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+AppDirectories.m"; sourceTree = "<group>"; };
-		6020269A15D6FFF300284FD5 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
-		6020269D15D7000200284FD5 /* CUrlGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUrlGrabber.h; sourceTree = "<group>"; };
-		6020269E15D7000200284FD5 /* curl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl.h; sourceTree = "<group>"; };
-		6020269F15D7000200284FD5 /* curlver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlver.h; sourceTree = "<group>"; };
-		602026A015D7000200284FD5 /* easy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easy.h; sourceTree = "<group>"; };
-		602026A115D7000200284FD5 /* mprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mprintf.h; sourceTree = "<group>"; };
-		602026A215D7000200284FD5 /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi.h; sourceTree = "<group>"; };
-		602026A315D7000200284FD5 /* stdcheaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdcheaders.h; sourceTree = "<group>"; };
-		602026A415D7000200284FD5 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		602026BB15D727AE00284FD5 /* NSFileManager+PathHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+PathHandling.h"; sourceTree = "<group>"; };
+		602026BC15D727AE00284FD5 /* NSFileManager+PathHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+PathHandling.m"; sourceTree = "<group>"; };
+		602026BF15D72A0500284FD5 /* ORImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORImageViewCell.h; path = Views/ORImageViewCell.h; sourceTree = "<group>"; };
+		602026C015D72A0500284FD5 /* ORImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORImageViewCell.m; path = Views/ORImageViewCell.m; sourceTree = "<group>"; };
+		602026C215D7384900284FD5 /* ORAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAlbumViewController.h; path = ViewControllers/ORAlbumViewController.h; sourceTree = "<group>"; };
+		602026C315D7384900284FD5 /* ORAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAlbumViewController.m; path = ViewControllers/ORAlbumViewController.m; sourceTree = "<group>"; };
 		60F17DFB15D30BEF0072FA37 /* Melia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F17DFF15D30BEF0072FA37 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60F17E0115D30BEF0072FA37 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,14 +53,10 @@
 		60F17E0E15D30BEF0072FA37 /* ORAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORAppDelegate.h; sourceTree = "<group>"; };
 		60F17E0F15D30BEF0072FA37 /* ORAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORAppDelegate.m; sourceTree = "<group>"; };
 		60F17E1215D30BEF0072FA37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		60F17E1415D30BEF0072FA37 /* ORViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORViewController.h; sourceTree = "<group>"; };
-		60F17E1515D30BEF0072FA37 /* ORViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORViewController.m; sourceTree = "<group>"; };
+		60F17E1415D30BEF0072FA37 /* ORCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORCollectionViewController.h; sourceTree = "<group>"; };
+		60F17E1515D30BEF0072FA37 /* ORCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORCollectionViewController.m; sourceTree = "<group>"; };
 		60F17E1C15D30DBE0072FA37 /* ORAlbumFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAlbumFinderViewController.h; path = ViewControllers/ORAlbumFinderViewController.h; sourceTree = "<group>"; };
 		60F17E1D15D30DBE0072FA37 /* ORAlbumFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAlbumFinderViewController.m; path = ViewControllers/ORAlbumFinderViewController.m; sourceTree = "<group>"; };
-		60F17E2515D3133F0072FA37 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Album.h; path = Models/Album.h; sourceTree = "<group>"; };
-		60F17E2615D3133F0072FA37 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Album.m; path = Models/Album.m; sourceTree = "<group>"; };
-		60F17E2915D316F60072FA37 /* ORAlbumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAlbumView.h; path = Views/ORAlbumView.h; sourceTree = "<group>"; };
-		60F17E2A15D316F60072FA37 /* ORAlbumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAlbumView.m; path = Views/ORAlbumView.m; sourceTree = "<group>"; };
 		CB3D300365B94EB8975BC4E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -76,7 +69,6 @@
 				60F17E0215D30BEF0072FA37 /* Foundation.framework in Frameworks */,
 				60F17E0415D30BEF0072FA37 /* CoreGraphics.framework in Frameworks */,
 				5E150CCA63514F45B4686C3E /* libPods.a in Frameworks */,
-				6020269B15D6FFF300284FD5 /* libcurl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,21 +78,14 @@
 		601C19F515D6D734001E4398 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				6020269D15D7000200284FD5 /* CUrlGrabber.h */,
-				6020269E15D7000200284FD5 /* curl.h */,
-				6020269F15D7000200284FD5 /* curlver.h */,
-				602026A015D7000200284FD5 /* easy.h */,
-				602026A115D7000200284FD5 /* mprintf.h */,
-				602026A215D7000200284FD5 /* multi.h */,
-				602026A315D7000200284FD5 /* stdcheaders.h */,
-				602026A415D7000200284FD5 /* types.h */,
-				6020269A15D6FFF300284FD5 /* libcurl.a */,
 				601C19F915D6DAEC001E4398 /* NSFileManager+AppDirectories.h */,
 				601C19FA15D6DAEC001E4398 /* NSFileManager+AppDirectories.m */,
 				601C19F615D6D74F001E4398 /* NSFileManager+SkipBackup.h */,
 				601C19F715D6D74F001E4398 /* NSFileManager+SkipBackup.m */,
 				601C19F215D6D730001E4398 /* ARFileDownloadOperation.h */,
 				601C19F315D6D730001E4398 /* ARFileDownloadOperation.m */,
+				602026BB15D727AE00284FD5 /* NSFileManager+PathHandling.h */,
+				602026BC15D727AE00284FD5 /* NSFileManager+PathHandling.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -144,8 +129,6 @@
 				60F17E0E15D30BEF0072FA37 /* ORAppDelegate.h */,
 				60F17E0F15D30BEF0072FA37 /* ORAppDelegate.m */,
 				60F17E1115D30BEF0072FA37 /* MainStoryboard.storyboard */,
-				60F17E1415D30BEF0072FA37 /* ORViewController.h */,
-				60F17E1515D30BEF0072FA37 /* ORViewController.m */,
 				60F17E0615D30BEF0072FA37 /* Supporting Files */,
 			);
 			path = Melia;
@@ -165,10 +148,14 @@
 		60F17E1F15D30DC20072FA37 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				60F17E1415D30BEF0072FA37 /* ORCollectionViewController.h */,
+				60F17E1515D30BEF0072FA37 /* ORCollectionViewController.m */,
 				60F17E1C15D30DBE0072FA37 /* ORAlbumFinderViewController.h */,
 				60F17E1D15D30DBE0072FA37 /* ORAlbumFinderViewController.m */,
 				601C19E715D6CF9B001E4398 /* ORAlbumSyncViewController.h */,
 				601C19E815D6CF9B001E4398 /* ORAlbumSyncViewController.m */,
+				602026C215D7384900284FD5 /* ORAlbumViewController.h */,
+				602026C315D7384900284FD5 /* ORAlbumViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -176,8 +163,6 @@
 		60F17E2415D313240072FA37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				60F17E2515D3133F0072FA37 /* Album.h */,
-				60F17E2615D3133F0072FA37 /* Album.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -185,8 +170,8 @@
 		60F17E2815D316E00072FA37 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				60F17E2915D316F60072FA37 /* ORAlbumView.h */,
-				60F17E2A15D316F60072FA37 /* ORAlbumView.m */,
+				602026BF15D72A0500284FD5 /* ORImageViewCell.h */,
+				602026C015D72A0500284FD5 /* ORImageViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -275,14 +260,15 @@
 			files = (
 				60F17E0C15D30BEF0072FA37 /* main.m in Sources */,
 				60F17E1015D30BEF0072FA37 /* ORAppDelegate.m in Sources */,
-				60F17E1615D30BEF0072FA37 /* ORViewController.m in Sources */,
+				60F17E1615D30BEF0072FA37 /* ORCollectionViewController.m in Sources */,
 				60F17E1E15D30DBE0072FA37 /* ORAlbumFinderViewController.m in Sources */,
-				60F17E2715D3133F0072FA37 /* Album.m in Sources */,
-				60F17E2B15D316F60072FA37 /* ORAlbumView.m in Sources */,
 				601C19E915D6CF9B001E4398 /* ORAlbumSyncViewController.m in Sources */,
 				601C19F415D6D730001E4398 /* ARFileDownloadOperation.m in Sources */,
 				601C19F815D6D74F001E4398 /* NSFileManager+SkipBackup.m in Sources */,
 				601C19FB15D6DAEC001E4398 /* NSFileManager+AppDirectories.m in Sources */,
+				602026BD15D727AE00284FD5 /* NSFileManager+PathHandling.m in Sources */,
+				602026C115D72A0500284FD5 /* ORImageViewCell.m in Sources */,
+				602026C415D7384900284FD5 /* ORAlbumViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

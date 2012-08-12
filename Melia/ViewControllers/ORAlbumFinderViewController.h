@@ -13,7 +13,7 @@
 - (void)albumFinder:(ORAlbumFinderViewController *)finder didFindAlbumWithName:(NSString *)name andURLs:(NSSet *)urls;
 @end
 
-@interface ORAlbumFinderViewController : UIViewController <UIWebViewDelegate, UICollectionViewDataSource>
+@interface ORAlbumFinderViewController : UIViewController <UIWebViewDelegate>
 
 @property (weak) id<ORAlbumFinderDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
