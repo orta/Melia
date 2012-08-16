@@ -80,7 +80,7 @@ static NSString *MeliaHomePage = @"http://jamesmeliaphoto.zenfolio.com/f63488417
     NSString *theGridHTML = [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('defdec')[0].innerHTML.toString()"];
     NSArray *splitHTMLAtImage = [theGridHTML componentsSeparatedByString:@"background-image:url("];
     for (int i = 1; i < splitHTMLAtImage.count; i++) {
-        NSString *path = [splitHTMLAtImage[i] componentsSeparatedByString:@");"][0];
+        NSString *path = [[[splitHTMLAtImage objectAtIndex:i] componentsSeparatedByString:@");"] objectAtIndex:0];
         if (![_photos containsObject:path]) {
             [_photos addObject:path];
         }

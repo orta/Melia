@@ -63,42 +63,42 @@
             dummyBottom = CGRectMake(0, 56, 100, 44);
             
             // Create toolbar
-            self.toolbar = [[UIToolbar alloc] initWithFrame:dummyBottom];
-            toolbar.barStyle = UIBarStyleBlackTranslucent;
-            toolbar.autoresizingMask = (UIViewAutoresizingFlexibleWidth
-                                        | UIViewAutoresizingFlexibleTopMargin);
-            
-            // Create toolbar buttons
-            
-            UIImage * prev = [[UIImage alloc]initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"leftArrow" 
-                                                                                                   ofType:@"png"]];
-            self.previousButton = [[UIBarButtonItem alloc] initWithImage:prev 
-                                                                   style:UIBarButtonItemStylePlain 
-                                                                  target:self 
-                                                                  action:@selector(previousButtonTouched)];
-            
-            UIImage * next = [[UIImage alloc]initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"rightArrow" 
-                                                                                                   ofType:@"png"]];
-            self.nextButton = [[UIBarButtonItem alloc] initWithImage:next 
-                                                               style:UIBarButtonItemStylePlain 
-                                                              target:self 
-                                                              action:@selector(nextButtonTouched)];
-            
-            self.trashButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash 
-                                                                             target:self 
-                                                                             action:@selector(trashButtonTouched)];
-            UIBarButtonItem *flex1 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-            UIBarButtonItem *flex2 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-            
-            if (style == JDSlideshowStyleView) {
-                // Don't include trash button
-                [toolbar setItems:[NSArray arrayWithObjects:previousButton, flex1, nextButton, nil]];
-            } else if (style == JDSlideshowStyleEdit) {
-                // Include trash button
-                [toolbar setItems:[NSArray arrayWithObjects:previousButton, flex1, trashButton, flex2, nextButton, nil]];
-            }
-            
-            
+//            self.toolbar = [[UIToolbar alloc] initWithFrame:dummyBottom];
+//            toolbar.barStyle = UIBarStyleBlackTranslucent;
+//            toolbar.autoresizingMask = (UIViewAutoresizingFlexibleWidth
+//                                        | UIViewAutoresizingFlexibleTopMargin);
+//            
+//            // Create toolbar buttons
+//            
+//            UIImage * prev = [[UIImage alloc]initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"leftArrow" 
+//                                                                                                   ofType:@"png"]];
+//            self.previousButton = [[UIBarButtonItem alloc] initWithImage:prev 
+//                                                                   style:UIBarButtonItemStylePlain 
+//                                                                  target:self 
+//                                                                  action:@selector(previousButtonTouched)];
+//            
+//            UIImage * next = [[UIImage alloc]initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"rightArrow" 
+//                                                                                                   ofType:@"png"]];
+//            self.nextButton = [[UIBarButtonItem alloc] initWithImage:next 
+//                                                               style:UIBarButtonItemStylePlain 
+//                                                              target:self 
+//                                                              action:@selector(nextButtonTouched)];
+//            
+//            self.trashButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash 
+//                                                                             target:self 
+//                                                                             action:@selector(trashButtonTouched)];
+//            UIBarButtonItem *flex1 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//            UIBarButtonItem *flex2 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//            
+//            if (style == JDSlideshowStyleView) {
+//                // Don't include trash button
+//                [toolbar setItems:[NSArray arrayWithObjects:previousButton, flex1, nextButton, nil]];
+//            } else if (style == JDSlideshowStyleEdit) {
+//                // Include trash button
+//                [toolbar setItems:[NSArray arrayWithObjects:previousButton, flex1, trashButton, flex2, nextButton, nil]];
+//            }
+//            
+
         } else if (style == JDSlideshowStyleQuick) {
             // paging control
             

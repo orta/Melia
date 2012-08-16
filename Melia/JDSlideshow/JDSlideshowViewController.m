@@ -98,8 +98,7 @@ fetchContentForSlideAtIndex:(NSUInteger)index
 
 - (void) slideshow:(JDSlideshowController *)theSlideshow 
 didSetToolbarsVisible:(BOOL)visible 
-          animated:(BOOL)animated
-{
+          animated:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:!visible animated:animated];
 }
 

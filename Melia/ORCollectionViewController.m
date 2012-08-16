@@ -53,7 +53,6 @@ static CGSize GridCellSize = { .width = 360, .height = 300 };
     if (_folders.count == 1 && !animated) {
         [self loadAlbumViewForItemAtIndex:0 animated:YES];
     }
-
 }
 
 - (void)openFolderChooser {

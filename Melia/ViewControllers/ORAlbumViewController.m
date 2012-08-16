@@ -13,7 +13,7 @@
 #import "ORAlbumFinderViewController.h"
 #import "NSFileManager+PathHandling.h"
 #import "ORImageViewCell.h"
-#import "JDSlideshowViewController.h"
+#import "ORPhotoViewController.h"
 
 static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
@@ -80,7 +80,7 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 #pragma mark Slideshow
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
-    JDSlideshowViewController *slideshow = [[JDSlideshowViewController alloc]initWithSlideshowStyle:JDSlideshowStyleQuick];
+    ORPhotoViewController *slideshow = [[ORPhotoViewController alloc] initWithSlideshowStyle:JDSlideshowStyleView];
     slideshow.delegate = self;
 
     [self.navigationController pushViewController:slideshow animated:YES];
