@@ -11,12 +11,15 @@
 #import "ORThumbnailOperation.h"
 #import "NSFileManager+PathHandling.h"
 #import "AFNetworking.h"
+#import "ORQueuedTransitionalImageView.h"
 
 float RetinaImageViewSize = 188;
 float LegacyImageViewSize = 94;
 
 @interface ORAlbumSyncViewController (){
-    NSOperationQueue *syncQueue;
+    __weak IBOutlet ORQueuedTransitionalImageView *_queuedImageView;
+
+    NSOperationQueue *_syncQueue;
 }
 
 @end
@@ -24,8 +27,8 @@ float LegacyImageViewSize = 94;
 @implementation ORAlbumSyncViewController
 
 - (void)viewDidUnload {
-    [self setImageView:nil];
     [self setTitleLabel:nil];
+    _queuedImageView = nil;
     [super viewDidUnload];
 }
 
@@ -35,7 +38,7 @@ float LegacyImageViewSize = 94;
 
 - (void)viewDidAppear:(BOOL)animated {
     int count = 0;
-    syncQueue = [[NSOperationQueue alloc] init];
+    _syncQueue = [[NSOperationQueue alloc] init];
     NSString *albumPath = [NSString stringWithFormat:@"%@/%@/images", [[NSFileManager defaultManager] applicationDocumentsDirectoryPath], _name];
     [[NSFileManager defaultManager] createDirectoryAtPath:albumPath withIntermediateDirectories:YES attributes:nil error:nil];
     [[NSFileManager defaultManager] createDirectoryAtPath:[albumPath stringByReplacingOccurrencesOfString:@"/images" withString:@"/thumbnails"] withIntermediateDirectories:YES attributes:nil error:nil];
@@ -47,8 +50,10 @@ float LegacyImageViewSize = 94;
         address = [address stringByReplacingOccurrencesOfString:@"10.jpg" withString:@"4.jpg"];
 
         ARFileDownloadOperation *fileDownloadOperation = [ARFileDownloadOperation fileDownloadFromURL:[NSURL URLWithString:address] toLocalPath:localPath];
+
         [fileDownloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [self.imageView setImage:[UIImage imageWithContentsOfFile:localPath]];
+
+            [_queuedImageView addImagePathToQueue:localPath];
             [self checkForFinish];
 
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -64,14 +69,14 @@ float LegacyImageViewSize = 94;
             [self checkForFinish];
         }];
 
-        [syncQueue addOperation:fileDownloadOperation];
-        [syncQueue addOperation:thumbnailOperation];
+        [_syncQueue addOperation:fileDownloadOperation];
+        [_syncQueue addOperation:thumbnailOperation];
         count++;
     }
 }
 
 - (void)checkForFinish {
-    if (syncQueue.operationCount == 0) {
+    if (_syncQueue.operationCount == 0) {
         [self.delegate albumSyncDidFinish:self];
     }
 }

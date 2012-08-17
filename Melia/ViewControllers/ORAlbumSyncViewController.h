@@ -18,7 +18,6 @@
 @interface ORAlbumSyncViewController : UIViewController
 
 @property (weak) id <ORAlbumSyncDelegate> delegate;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property NSString *name;
