@@ -156,7 +156,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="Marion-Regular" family="Marion" pointSize="22"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="wKT-yE-msg">
                                 <rect key="frame" x="375" y="537" width="20" height="20"/>
@@ -279,7 +279,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAlbumSyncViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="_queuedImageView" candidateClass="ORQueuedTransitionalImageView"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

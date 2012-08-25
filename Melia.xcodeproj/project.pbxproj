@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5E150CCA63514F45B4686C3E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3D300365B94EB8975BC4E1 /* libPods.a */; };
 		601C19E915D6CF9B001E4398 /* ORAlbumSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19E815D6CF9B001E4398 /* ORAlbumSyncViewController.m */; };
-		601C19F415D6D730001E4398 /* ARFileDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19F315D6D730001E4398 /* ARFileDownloadOperation.m */; };
+		601C19F415D6D730001E4398 /* ORFileDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19F315D6D730001E4398 /* ORFileDownloadOperation.m */; };
 		601C19F815D6D74F001E4398 /* NSFileManager+SkipBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C19F715D6D74F001E4398 /* NSFileManager+SkipBackup.m */; };
 		602026BD15D727AE00284FD5 /* NSFileManager+PathHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026BC15D727AE00284FD5 /* NSFileManager+PathHandling.m */; };
 		602026C115D72A0500284FD5 /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 602026C015D72A0500284FD5 /* ORImageViewCell.m */; };
@@ -105,6 +105,8 @@
 		6058DC1415DD9B1A00D35A13 /* ORBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6058DC1315DD9B1A00D35A13 /* ORBuyViewController.m */; };
 		60A6749115D7FB6A009D23B4 /* MeliaIcon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A6749015D7FB6A009D23B4 /* MeliaIcon144.png */; };
 		60A6749315D7FB8B009D23B4 /* MeliaIcon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A6749215D7FB8B009D23B4 /* MeliaIcon72.png */; };
+		60D9054315E8F6B6000846E1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D9054215E8F6B6000846E1 /* Twitter.framework */; };
+		60D9054615E8F6BA000846E1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D9054515E8F6BA000846E1 /* MessageUI.framework */; };
 		60F17E0015D30BEF0072FA37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17DFF15D30BEF0072FA37 /* UIKit.framework */; };
 		60F17E0215D30BEF0072FA37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17E0115D30BEF0072FA37 /* Foundation.framework */; };
 		60F17E0415D30BEF0072FA37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17E0315D30BEF0072FA37 /* CoreGraphics.framework */; };
@@ -123,8 +125,8 @@
 		6008042E15DDACED004CFEEB /* APP_SETUP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APP_SETUP.h; sourceTree = "<group>"; };
 		601C19E715D6CF9B001E4398 /* ORAlbumSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAlbumSyncViewController.h; path = ViewControllers/ORAlbumSyncViewController.h; sourceTree = "<group>"; };
 		601C19E815D6CF9B001E4398 /* ORAlbumSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAlbumSyncViewController.m; path = ViewControllers/ORAlbumSyncViewController.m; sourceTree = "<group>"; };
-		601C19F215D6D730001E4398 /* ARFileDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFileDownloadOperation.h; sourceTree = "<group>"; };
-		601C19F315D6D730001E4398 /* ARFileDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFileDownloadOperation.m; sourceTree = "<group>"; };
+		601C19F215D6D730001E4398 /* ORFileDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORFileDownloadOperation.h; sourceTree = "<group>"; };
+		601C19F315D6D730001E4398 /* ORFileDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORFileDownloadOperation.m; sourceTree = "<group>"; };
 		601C19F615D6D74F001E4398 /* NSFileManager+SkipBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SkipBackup.h"; sourceTree = "<group>"; };
 		601C19F715D6D74F001E4398 /* NSFileManager+SkipBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SkipBackup.m"; sourceTree = "<group>"; };
 		602026BB15D727AE00284FD5 /* NSFileManager+PathHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+PathHandling.h"; sourceTree = "<group>"; };
@@ -237,6 +239,8 @@
 		6058DC1315DD9B1A00D35A13 /* ORBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORBuyViewController.m; path = ViewControllers/ORBuyViewController.m; sourceTree = "<group>"; };
 		60A6749015D7FB6A009D23B4 /* MeliaIcon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MeliaIcon144.png; sourceTree = "<group>"; };
 		60A6749215D7FB8B009D23B4 /* MeliaIcon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MeliaIcon72.png; sourceTree = "<group>"; };
+		60D9054215E8F6B6000846E1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		60D9054515E8F6BA000846E1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		60F17DFB15D30BEF0072FA37 /* The Melia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Melia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F17DFF15D30BEF0072FA37 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60F17E0115D30BEF0072FA37 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -273,6 +277,8 @@
 				60F17E0215D30BEF0072FA37 /* Foundation.framework in Frameworks */,
 				60F17E0415D30BEF0072FA37 /* CoreGraphics.framework in Frameworks */,
 				5E150CCA63514F45B4686C3E /* libPods.a in Frameworks */,
+				60D9054615E8F6BA000846E1 /* MessageUI.framework in Frameworks */,
+				60D9054315E8F6B6000846E1 /* Twitter.framework in Frameworks */,
 				6058DBFA15DD8CBB00D35A13 /* ZooZSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,8 +293,8 @@
 				602026F015D74B1700284FD5 /* JDSlideshow */,
 				601C19F615D6D74F001E4398 /* NSFileManager+SkipBackup.h */,
 				601C19F715D6D74F001E4398 /* NSFileManager+SkipBackup.m */,
-				601C19F215D6D730001E4398 /* ARFileDownloadOperation.h */,
-				601C19F315D6D730001E4398 /* ARFileDownloadOperation.m */,
+				601C19F215D6D730001E4398 /* ORFileDownloadOperation.h */,
+				601C19F315D6D730001E4398 /* ORFileDownloadOperation.m */,
 				602026BB15D727AE00284FD5 /* NSFileManager+PathHandling.h */,
 				602026BC15D727AE00284FD5 /* NSFileManager+PathHandling.m */,
 				6020272C15D7B3A000284FD5 /* ORThumbnailOperation.h */,
@@ -439,6 +445,8 @@
 		60F17DFE15D30BEF0072FA37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60D9054515E8F6BA000846E1 /* MessageUI.framework */,
+				60D9054215E8F6B6000846E1 /* Twitter.framework */,
 				6058DBFF15DD8D3700D35A13 /* libxml2.dylib */,
 				6058DC0015DD8D3900D35A13 /* libz.dylib */,
 				6058DBFD15DD8D2B00D35A13 /* Security.framework */,
@@ -681,7 +689,7 @@
 				60F17E1615D30BEF0072FA37 /* ORCollectionViewController.m in Sources */,
 				60F17E1E15D30DBE0072FA37 /* ORAlbumFinderViewController.m in Sources */,
 				601C19E915D6CF9B001E4398 /* ORAlbumSyncViewController.m in Sources */,
-				601C19F415D6D730001E4398 /* ARFileDownloadOperation.m in Sources */,
+				601C19F415D6D730001E4398 /* ORFileDownloadOperation.m in Sources */,
 				601C19F815D6D74F001E4398 /* NSFileManager+SkipBackup.m in Sources */,
 				602026BD15D727AE00284FD5 /* NSFileManager+PathHandling.m in Sources */,
 				602026C115D72A0500284FD5 /* ORImageViewCell.m in Sources */,

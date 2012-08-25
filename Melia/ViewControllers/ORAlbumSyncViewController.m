@@ -7,7 +7,7 @@
 //
 
 #import "ORAlbumSyncViewController.h"
-#import "ARFileDownloadOperation.h"
+#import "ORFileDownloadOperation.h"
 #import "ORThumbnailOperation.h"
 #import "NSFileManager+PathHandling.h"
 #import "AFNetworking.h"
@@ -49,7 +49,7 @@ float LegacyImageViewSize = 94;
         NSString *localPath = [NSString stringWithFormat:@"%@/%i.jpg", albumPath, count];
         address = [address stringByReplacingOccurrencesOfString:@"10.jpg" withString:@"4.jpg"];
 
-        ARFileDownloadOperation *fileDownloadOperation = [ARFileDownloadOperation fileDownloadFromURL:[NSURL URLWithString:address] toLocalPath:localPath];
+        ORFileDownloadOperation *fileDownloadOperation = [ORFileDownloadOperation fileDownloadFromURL:[NSURL URLWithString:address] toLocalPath:localPath];
 
         [fileDownloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 
