@@ -106,6 +106,9 @@
 		60A6749115D7FB6A009D23B4 /* MeliaIcon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A6749015D7FB6A009D23B4 /* MeliaIcon144.png */; };
 		60A6749315D7FB8B009D23B4 /* MeliaIcon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A6749215D7FB8B009D23B4 /* MeliaIcon72.png */; };
 		60C480A915E922AF008CA6D5 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C480A815E922AF008CA6D5 /* Analytics.m */; };
+		60C480AD15E924A3008CA6D5 /* ORTexturedBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C480AC15E924A3008CA6D5 /* ORTexturedBackgroundView.m */; };
+		60C480BB15E92A95008CA6D5 /* MeliaNavBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C480B915E92A95008CA6D5 /* MeliaNavBar.png */; };
+		60C480BC15E92A95008CA6D5 /* MeliaNavBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C480BA15E92A95008CA6D5 /* MeliaNavBar@2x.png */; };
 		60D9054315E8F6B6000846E1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D9054215E8F6B6000846E1 /* Twitter.framework */; };
 		60D9054615E8F6BA000846E1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D9054515E8F6BA000846E1 /* MessageUI.framework */; };
 		60F17E0015D30BEF0072FA37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17DFF15D30BEF0072FA37 /* UIKit.framework */; };
@@ -242,6 +245,10 @@
 		60A6749215D7FB8B009D23B4 /* MeliaIcon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MeliaIcon72.png; sourceTree = "<group>"; };
 		60C480A715E922AF008CA6D5 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		60C480A815E922AF008CA6D5 /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
+		60C480AB15E924A3008CA6D5 /* ORTexturedBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORTexturedBackgroundView.h; path = Views/ORTexturedBackgroundView.h; sourceTree = "<group>"; };
+		60C480AC15E924A3008CA6D5 /* ORTexturedBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORTexturedBackgroundView.m; path = Views/ORTexturedBackgroundView.m; sourceTree = "<group>"; };
+		60C480B915E92A95008CA6D5 /* MeliaNavBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MeliaNavBar.png; sourceTree = "<group>"; };
+		60C480BA15E92A95008CA6D5 /* MeliaNavBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MeliaNavBar@2x.png"; sourceTree = "<group>"; };
 		60D9054215E8F6B6000846E1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		60D9054515E8F6BA000846E1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		60F17DFB15D30BEF0072FA37 /* The Melia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Melia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -425,6 +432,16 @@
 			name = Popovers;
 			sourceTree = "<group>";
 		};
+		60C480B015E928C9008CA6D5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				60C480B915E92A95008CA6D5 /* MeliaNavBar.png */,
+				60C480BA15E92A95008CA6D5 /* MeliaNavBar@2x.png */,
+				6058DB7015DD839700D35A13 /* TiledBackground.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		60F17DF015D30BEF0072FA37 = {
 			isa = PBXGroup;
 			children = (
@@ -468,9 +485,9 @@
 		60F17E0515D30BEF0072FA37 /* Melia */ = {
 			isa = PBXGroup;
 			children = (
+				60C480B015E928C9008CA6D5 /* Resources */,
 				6008042D15DDACEC004CFEEB /* APP_SETUP_EX.h */,
 				6008042E15DDACED004CFEEB /* APP_SETUP.h */,
-				6058DB7015DD839700D35A13 /* TiledBackground.png */,
 				601C19F515D6D734001E4398 /* Util */,
 				60F17E2815D316E00072FA37 /* Views */,
 				60F17E2415D313240072FA37 /* Models */,
@@ -528,6 +545,8 @@
 				602026C015D72A0500284FD5 /* ORImageViewCell.m */,
 				60FCFD4215DEE34800E8EA5D /* ORQueuedTransitionalImageView.h */,
 				60FCFD4315DEE34800E8EA5D /* ORQueuedTransitionalImageView.m */,
+				60C480AB15E924A3008CA6D5 /* ORTexturedBackgroundView.h */,
+				60C480AC15E924A3008CA6D5 /* ORTexturedBackgroundView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -662,6 +681,8 @@
 				6058DBF715DD8CBB00D35A13 /* ZooZPassCodeSave_ipad.nib in Resources */,
 				6058DBF815DD8CBB00D35A13 /* ZooZPasscodeVerify.nib in Resources */,
 				6058DBF915DD8CBB00D35A13 /* ZooZPasscodeVerify_ipad.nib in Resources */,
+				60C480BB15E92A95008CA6D5 /* MeliaNavBar.png in Resources */,
+				60C480BC15E92A95008CA6D5 /* MeliaNavBar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +730,7 @@
 				6058DC1415DD9B1A00D35A13 /* ORBuyViewController.m in Sources */,
 				60FCFD4415DEE34800E8EA5D /* ORQueuedTransitionalImageView.m in Sources */,
 				60C480A915E922AF008CA6D5 /* Analytics.m in Sources */,
+				60C480AD15E924A3008CA6D5 /* ORTexturedBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

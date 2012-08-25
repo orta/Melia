@@ -10,9 +10,11 @@
 
 @implementation ORAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"MeliaNavBar.png"] forBarMetrics:UIBarMetricsDefault];
+
+
     return YES;
 }
 							

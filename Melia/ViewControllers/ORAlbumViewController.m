@@ -33,7 +33,7 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     _gridView.autoresizesSubviews = YES;
     _gridView.actionDelegate = self;
     _gridView.dataSource = self;
-    _gridView.backgroundColor = [UIColor blackColor];
+    _gridView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TiledBackground.png"]];
     [self.view addSubview:_gridView];
 }
 
