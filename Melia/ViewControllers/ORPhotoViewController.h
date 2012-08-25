@@ -9,5 +9,5 @@
 #import "JDSlideshowViewController.h"
 
 @interface ORPhotoViewController : JDSlideshowViewController
-
+@property (strong) NSArray *photoPaths;
 @end

@@ -6,12 +6,15 @@
 //  Copyright (c) 2012 orta therox. All rights reserved.
 //
 
+#import "APP_SETUP.h"
+
 #import "ORAlbumSyncViewController.h"
 #import "ORFileDownloadOperation.h"
 #import "ORThumbnailOperation.h"
 #import "NSFileManager+PathHandling.h"
 #import "AFNetworking.h"
 #import "ORQueuedTransitionalImageView.h"
+
 
 float RetinaImageViewSize = 188;
 float LegacyImageViewSize = 94;
@@ -45,7 +48,7 @@ float LegacyImageViewSize = 94;
 
 
     for (NSString *url in _urls) {
-        NSString *address = [@"http://jamesmeliaphoto.zenfolio.com" stringByAppendingString:url];
+        NSString *address = [PHOTOG_URL stringByAppendingString:url];
         NSString *localPath = [NSString stringWithFormat:@"%@/%i.jpg", albumPath, count];
         address = [address stringByReplacingOccurrencesOfString:@"10.jpg" withString:@"4.jpg"];
 

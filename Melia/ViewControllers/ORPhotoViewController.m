@@ -8,14 +8,15 @@
 
 #import "ORPhotoViewController.h"
 #import "ORBuyViewController.h"
+#import "ORShareViewController.h"
 
 @interface ORPhotoViewController (){
     UIPopoverController *_popover;
+
 }
 @end
 
 @implementation ORPhotoViewController
-
 
 - (void)viewWillAppear:(BOOL)animated {
     UIBarButtonItem *buyButton = [[UIBarButtonItem alloc] initWithTitle:@"Buy" style:UIBarButtonItemStyleBordered target:self action:@selector(buyTapped:)];
@@ -38,10 +39,15 @@
 - (void)shareTapped:(id)sender {
     [_popover dismissPopoverAnimated:NO];
 
-    UIViewController *sharedVC = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"shareView"];
+    ORShareViewController *sharedVC = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"shareView"];
+    sharedVC.photoPaths = @[[self currentPath]];
+    
     _popover = [[UIPopoverController alloc] initWithContentViewController:sharedVC];
     [_popover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
+- (NSString *)currentPath {
+    return _photoPaths[self.slideshow.currentSlideIndex];
+}
 
 @end

@@ -10,7 +10,7 @@
 
 @interface ORShareViewController : UIViewController
 
-@property (strong, nonatomic) NSArray* photos;
+@property (strong, nonatomic) NSArray* photoPaths;
 
 - (IBAction)shareFacebook:(id)sender;
 - (IBAction)shareTwitter:(id)sender;

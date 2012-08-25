@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
+static NSString *PHOTOG_NAME = @"Orta Therox";
+
 static NSString* APP_SECRET = @"";
 static NSString* TESTFLIGHT_SECRET = @"";
 static NSString* MIXPANEL_TOKEN = @"";

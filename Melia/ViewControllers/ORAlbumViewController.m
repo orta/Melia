@@ -39,7 +39,13 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
 - (void)viewWillAppear:(BOOL)animated {
     NSFileManager *manager = [NSFileManager defaultManager];
-    _photos = [manager filesInFolder:_folderPath withExtension:@"jpg"];
+    NSArray *photosInFolder = [manager filesInFolder:_folderPath withExtension:@"jpg"];
+
+    NSMutableArray *photos = [NSMutableArray array];
+    for (NSString *file in photosInFolder) {
+        [photos addObject:[_folderPath stringByAppendingPathComponent:file]];
+    }
+    _photos = photos;
 
     [_gridView reloadData];
 }
@@ -66,14 +72,9 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
     cell.title = @"";
 
-    NSString *imagePath = [self imagePathAtIndex:index];
+    NSString *imagePath = _photos[index];
     cell.image = [UIImage imageWithContentsOfFile:[imagePath stringByReplacingOccurrencesOfString:@"/images/" withString:@"/thumbnails/"]];
     return cell;
-}
-
-- (NSString *)imagePathAtIndex:(NSInteger)index {
-    NSString *imagePath = [_photos objectAtIndex:index];
-    return [_folderPath stringByAppendingPathComponent:imagePath];
 }
 
 #pragma mark -
@@ -82,6 +83,7 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
     ORPhotoViewController *slideshow = [[ORPhotoViewController alloc] initWithSlideshowStyle:JDSlideshowStyleView];
     slideshow.delegate = self;
+    slideshow.photoPaths = _photos;
 
     [self.navigationController pushViewController:slideshow animated:YES];
     [slideshow navigateToSlideIndex:position animated:NO];
@@ -94,7 +96,7 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    UIImage *image = [UIImage imageWithContentsOfFile:[self imagePathAtIndex:index]];
+    UIImage *image = [UIImage imageWithContentsOfFile:_photos[index]];
     scrollView.contentSize = image.size;
     imageView.image = image;
 
@@ -109,8 +111,7 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     return _photos.count;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
 
