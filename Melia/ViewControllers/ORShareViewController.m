@@ -13,10 +13,22 @@
 @interface ORShareViewController ()
 @end
 
+NSString *const FBSessionStateChangedNotification = @"com.github.orta.Melia:FBSessionStateChangedNotification";
+
+
 @implementation ORShareViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionStateChanged:) name:FBSessionStateChangedNotification object:nil];
+
+}
+
 - (IBAction)shareFacebook:(id)sender {
-    if (![FBSession openActiveSessionWithAllowLoginUI:YES]) {
+    if (FBSession.activeSession.isOpen) {
+        [self uploadImageToFacebook];
+        
+    } else {
         FBLoginView *loginview = [[FBLoginView alloc] initWithPermissions:@[@"publish_actions"]];
 
         loginview.frame = CGRectOffset(loginview.frame, 5, 5);
@@ -24,15 +36,19 @@
 
         [self.view addSubview:loginview];
         [loginview sizeToFit];
-    }else {
+    } 
+}
+
+- (void)sessionStateChanged:(NSNotification*)notification {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    
+    if (FBSession.activeSession.isOpen) {
         [self uploadImageToFacebook];
     }
 }
 
-
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
-    
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
@@ -46,10 +62,11 @@
     
     UIImage *image = [UIImage imageWithContentsOfFile:_photoPaths[0]];
     [FBRequestConnection startForUploadPhoto:image completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        NSLog(@"Uploaded");
+        NSLog(@"Uploaded-ish");
     }];
-
 }
+
+
 
 - (IBAction)shareTwitter:(id)sender {
     TWTweetComposeViewController *tweetComposeViewController = [[TWTweetComposeViewController alloc] init];

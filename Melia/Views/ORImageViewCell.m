@@ -7,7 +7,7 @@
 //
 
 #import "ORImageViewCell.h"
-
+#import <QuartzCore/QuartzCore.h>
 static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 10};
 
 static CGFloat TitleLabelHeight = 44;
@@ -81,6 +81,19 @@ static CGFloat ImageBottomMargin = 10;
     _image = anImage;
     [_imageView setImage:anImage];
 }
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    if (editing) {
+//        if (animated) {
+        _imageView.layer.backgroundColor = [UIColor whiteColor].CGColor;
+        _imageView.layer.borderWidth = 3.0f;
+//        }
+    }else {
+        _imageView.layer.backgroundColor = [UIColor clearColor].CGColor;
+        _imageView.layer.borderWidth = 0.0f;
+    }
+}
+
 
 
 @end

@@ -20,7 +20,10 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 @interface ORAlbumViewController(){
     GMGridView *_gridView;
     NSArray *_photos;
+    BOOL _selectionMode;
 }
+
+- (void)setSelectionMode:(BOOL)selectionMode;
 @end
 
 @implementation ORAlbumViewController
@@ -48,6 +51,12 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     _photos = photos;
 
     [_gridView reloadData];
+//    self.selectionMode = YES;
+}
+
+- (void)setSelectionMode:(BOOL)selectionMode {
+    _selectionMode = selectionMode;
+    _gridView.editing = selectionMode;
 }
 
 #pragma mark -
@@ -77,17 +86,22 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     return cell;
 }
 
-#pragma mark -
-#pragma mark Slideshow
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
-    ORPhotoViewController *slideshow = [[ORPhotoViewController alloc] initWithSlideshowStyle:JDSlideshowStyleView];
-    slideshow.delegate = self;
-    slideshow.photoPaths = _photos;
+    if (_selectionMode) {
+//        [[gridView cellForItemAtIndex:position] set
+    }else {
+        ORPhotoViewController *slideshow = [[ORPhotoViewController alloc] initWithSlideshowStyle:JDSlideshowStyleView];
+        slideshow.delegate = self;
+        slideshow.photoPaths = _photos;
 
-    [self.navigationController pushViewController:slideshow animated:YES];
-    [slideshow navigateToSlideIndex:position animated:NO];
+        [self.navigationController pushViewController:slideshow animated:YES];
+        [slideshow navigateToSlideIndex:position animated:NO];
+    }
 }
+
+#pragma mark -
+#pragma mark Slideshow
 
 - (void) slideshow:(id<JDSlideshow>)theSlideshow fetchContentForSlideAtIndex:(NSUInteger)index {
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
