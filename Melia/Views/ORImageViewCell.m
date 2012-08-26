@@ -8,11 +8,11 @@
 
 #import "ORImageViewCell.h"
 #import <QuartzCore/QuartzCore.h>
+
 static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 10};
 
 static CGFloat TitleLabelHeight = 44;
 static CGFloat ImageBottomMargin = 10;
-
 
 @interface ORImageViewCell (){
     UIImageView *_imageView;
@@ -22,7 +22,6 @@ static CGFloat ImageBottomMargin = 10;
 @end
 
 @implementation ORImageViewCell
-
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -50,7 +49,7 @@ static CGFloat ImageBottomMargin = 10;
 - (void)prepareForReuse {
     _titleLabel.text = @"";
     self.image = nil;
-    _imageView.layer.backgroundColor = [UIColor clearColor].CGColor;
+    _imageView.layer.borderColor = [UIColor clearColor].CGColor;
     _imageView.layer.borderWidth = 0.0f;
 }
 
@@ -88,19 +87,24 @@ static CGFloat ImageBottomMargin = 10;
     return imageFrame;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    BOOL duration = animated? 0.3 : 0;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animates {
     if (selected) {
-        [UIView animateWithDuration:duration animations:^{
-            _imageView.frame = CGRectInset([self imageFrame], 3, 3);
-        }];
-
-        _imageView.layer.backgroundColor = [UIColor whiteColor].CGColor;
-        _imageView.layer.borderWidth = 3.0f;
+        _imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        _imageView.layer.borderWidth = 2.0f;
     }else {
-        _imageView.layer.backgroundColor = [UIColor clearColor].CGColor;
-        _imageView.layer.borderWidth = 0.0f;
+        _imageView.layer.borderColor = [UIColor clearColor].CGColor;
+        _imageView.layer.borderWidth = 2.0f;
+    }
+}
 
+- (void)setSelectable:(BOOL)selectable animated:(BOOL)animates {
+    CGFloat duration = animates? 0.3 : 0;
+
+    if (selectable) {
+        [UIView animateWithDuration:duration animations:^{
+            _imageView.frame = CGRectInset([self imageFrame], 5, 5);
+        }];
+    } else {
         [UIView animateWithDuration:duration animations:^{
             _imageView.frame = [self imageFrame];
         }];

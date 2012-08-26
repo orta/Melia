@@ -19,10 +19,8 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 @interface ORPhotoFolderGridViewController(){
     GMGridView *_gridView;
     NSArray *_photos;
-    BOOL _selectionMode;
 }
 
-- (void)setSelectionMode:(BOOL)selectionMode;
 @end
 
 @implementation ORPhotoFolderGridViewController
@@ -37,9 +35,7 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     _gridView.dataSource = self;
     _gridView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TiledBackground.png"]];
     [self.view addSubview:_gridView];
-}
 
-- (void)viewWillAppear:(BOOL)animated {
     NSFileManager *manager = [NSFileManager defaultManager];
     NSArray *photosInFolder = [manager filesInFolder:_folderPath withExtension:@"jpg"];
 
@@ -48,14 +44,7 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
         [photos addObject:[_folderPath stringByAppendingPathComponent:file]];
     }
     _photos = photos;
-
     [_gridView reloadData];
-    //    self.selectionMode = YES;
-}
-
-- (void)setSelectionMode:(BOOL)selectionMode {
-    _selectionMode = selectionMode;
-    _gridView.editing = selectionMode;
 }
 
 - (NSArray *)photoPaths {
@@ -105,8 +94,10 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
 - (NSArray *)visibleGridCells {
     NSMutableArray *cells = [NSMutableArray array];
-    for (GMGridViewCell *view in [[[_gridView subviews]objectAtIndex:0] subviews]) {
-        [cells addObject:view];
+    if (_gridView.subviews.count) {
+        for (GMGridViewCell *view in [_gridView  subviews]) {
+            [cells addObject:view];
+        }        
     }
     return cells;
 }

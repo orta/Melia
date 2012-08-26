@@ -13,5 +13,6 @@
 @property (nonatomic) NSString *title;
 @property (nonatomic) UIImage *image;
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animates;
+- (void)setSelectable:(BOOL)selectable animated:(BOOL)animates;
 @end

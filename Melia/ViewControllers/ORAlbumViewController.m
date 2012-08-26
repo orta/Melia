@@ -27,7 +27,9 @@
     [super viewWillAppear:YES];
 }
 
+
 - (BOOL)selectionMode { return _selectionMode; }
+
 
 - (void)setSelectionMode:(BOOL)selectionMode {
     _selectionMode = selectionMode;
@@ -36,20 +38,33 @@
         self.title = @"Select Photos";
         _selectedIndices = [NSMutableArray array];
 
-
         UIBarButtonItem *printsButton = [[UIBarButtonItem alloc] initWithTitle:@"Prints" style:UIBarButtonItemStyleBordered target:self action:@selector(slideshowTapped:)];
         UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStyleBordered target:self action:@selector(slideshowTapped:)];
-        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleSelect:)];
-        self.navigationItem.rightBarButtonItems = @[shareButton, printsButton, cancelButton ];
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(toggleSelect:)];
+        self.navigationItem.rightBarButtonItems = @[ cancelButton, shareButton, printsButton ];
 
     }else {
         self.title = @" ";
 
         UIBarButtonItem *selectButton = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleSelect:)];
         UIBarButtonItem *slideshowButton = [[UIBarButtonItem alloc] initWithTitle:@"Slideshow" style:UIBarButtonItemStyleBordered target:self action:@selector(slideshowTapped:)];
-        self.navigationItem.rightBarButtonItems = @[selectButton, slideshowButton];
+        self.navigationItem.rightBarButtonItems = @[ selectButton, slideshowButton ];
     }
+
+    NSArray *visibleCells = [self visibleGridCells];
+    if (visibleCells.count) {
+        for (ORImageViewCell *cell in visibleCells) {
+            if ([cell isKindOfClass:[ORImageViewCell class]]) {
+                [cell setSelectable:_selectionMode animated:YES];
+
+                if (!_selectionMode) {
+                    [cell setSelected:NO animated:YES];
+                }
+            }
+        }
+    }    
 }
+
 
 - (void)slideshowTapped:(UIButton *)sender {
     JBKenBurnsView *kenView = [[JBKenBurnsView alloc] initWithFrame:self.view.bounds];
@@ -57,12 +72,16 @@
     [kenView animateWithImagePaths:[self photoPaths] transitionDuration:5 loop:YES isLandscape:YES];
 }
 
+
 - (void)toggleSelect:(UIButton *)sender {
     self.selectionMode = !_selectionMode;
 }
 
+
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index {
     ORImageViewCell *cell = (ORImageViewCell *)[super GMGridView:gridView cellForItemAtIndex:index];
+    [cell setSelectable:_selectionMode animated:NO];
+
     if (_selectionMode) {
         if ([_selectedIndices containsObject:@(index)]) {
             [cell setSelected:YES animated:NO];
@@ -72,6 +91,7 @@
     }
     return cell;
 }
+
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
     if (_selectionMode) {
