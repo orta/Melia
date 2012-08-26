@@ -121,6 +121,7 @@
 		60F17E1615D30BEF0072FA37 /* ORCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F17E1515D30BEF0072FA37 /* ORCollectionViewController.m */; };
 		60F17E1E15D30DBE0072FA37 /* ORAlbumFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F17E1D15D30DBE0072FA37 /* ORAlbumFinderViewController.m */; };
 		60F26E1815E977AC000F940A /* ORFacebookSharer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F26E1715E977AC000F940A /* ORFacebookSharer.m */; };
+		60F84EFE15EA913B00A8C46F /* ORPhotoFolderGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F84EFD15EA913B00A8C46F /* ORPhotoFolderGridViewController.m */; };
 		60FCFD4415DEE34800E8EA5D /* ORQueuedTransitionalImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FCFD4315DEE34800E8EA5D /* ORQueuedTransitionalImageView.m */; };
 /* End PBXBuildFile section */
 
@@ -269,6 +270,8 @@
 		60F17E1D15D30DBE0072FA37 /* ORAlbumFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAlbumFinderViewController.m; path = ViewControllers/ORAlbumFinderViewController.m; sourceTree = "<group>"; };
 		60F26E1615E977AC000F940A /* ORFacebookSharer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORFacebookSharer.h; path = Util/ORFacebookSharer.h; sourceTree = "<group>"; };
 		60F26E1715E977AC000F940A /* ORFacebookSharer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORFacebookSharer.m; path = Util/ORFacebookSharer.m; sourceTree = "<group>"; };
+		60F84EFC15EA913B00A8C46F /* ORPhotoFolderGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORPhotoFolderGridViewController.h; path = ViewControllers/ORPhotoFolderGridViewController.h; sourceTree = "<group>"; };
+		60F84EFD15EA913B00A8C46F /* ORPhotoFolderGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORPhotoFolderGridViewController.m; path = ViewControllers/ORPhotoFolderGridViewController.m; sourceTree = "<group>"; };
 		60FCFD4215DEE34800E8EA5D /* ORQueuedTransitionalImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORQueuedTransitionalImageView.h; path = Views/ORQueuedTransitionalImageView.h; sourceTree = "<group>"; };
 		60FCFD4315DEE34800E8EA5D /* ORQueuedTransitionalImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORQueuedTransitionalImageView.m; path = Views/ORQueuedTransitionalImageView.m; sourceTree = "<group>"; };
 		CB3D300365B94EB8975BC4E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -532,6 +535,8 @@
 				60F17E1515D30BEF0072FA37 /* ORCollectionViewController.m */,
 				6058DB7815DD8BEA00D35A13 /* ORPhotoViewController.h */,
 				6058DB7915DD8BEA00D35A13 /* ORPhotoViewController.m */,
+				60F84EFC15EA913B00A8C46F /* ORPhotoFolderGridViewController.h */,
+				60F84EFD15EA913B00A8C46F /* ORPhotoFolderGridViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -737,6 +742,7 @@
 				60C480A915E922AF008CA6D5 /* Analytics.m in Sources */,
 				60C480AD15E924A3008CA6D5 /* ORTexturedBackgroundView.m in Sources */,
 				60F26E1815E977AC000F940A /* ORFacebookSharer.m in Sources */,
+				60F84EFE15EA913B00A8C46F /* ORPhotoFolderGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

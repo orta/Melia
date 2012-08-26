@@ -56,6 +56,8 @@ static CGFloat ImageBottomMargin = 10;
 - (void)prepareForReuse {
     _titleLabel.text = @"";
     self.image = nil;
+    _imageView.layer.backgroundColor = [UIColor clearColor].CGColor;
+    _imageView.layer.borderWidth = 0.0f;
 }
 
 - (void)layoutSubviews {
@@ -82,18 +84,14 @@ static CGFloat ImageBottomMargin = 10;
     [_imageView setImage:anImage];
 }
 
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    if (editing) {
-//        if (animated) {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    if (selected) {
         _imageView.layer.backgroundColor = [UIColor whiteColor].CGColor;
         _imageView.layer.borderWidth = 3.0f;
-//        }
     }else {
         _imageView.layer.backgroundColor = [UIColor clearColor].CGColor;
         _imageView.layer.borderWidth = 0.0f;
     }
 }
-
-
 
 @end

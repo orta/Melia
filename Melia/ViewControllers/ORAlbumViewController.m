@@ -8,127 +8,67 @@
 //
 
 #import "ORAlbumViewController.h"
-#import "ORCollectionViewController.h"
-#import "ORAlbumSyncViewController.h"
-#import "ORAlbumFinderViewController.h"
-#import "NSFileManager+PathHandling.h"
+#import "JBKenBurnsView.h"
 #import "ORImageViewCell.h"
-#import "ORPhotoViewController.h"
-
-static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
 @interface ORAlbumViewController(){
-    GMGridView *_gridView;
-    NSArray *_photos;
     BOOL _selectionMode;
+    NSMutableArray *_selectedIndices;
 }
-
-- (void)setSelectionMode:(BOOL)selectionMode;
 @end
 
 @implementation ORAlbumViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    _gridView = [[GMGridView alloc] initWithFrame:self.view.bounds];
-    _gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _gridView.autoresizesSubviews = YES;
-    _gridView.actionDelegate = self;
-    _gridView.dataSource = self;
-    _gridView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TiledBackground.png"]];
-    [self.view addSubview:_gridView];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
-    NSFileManager *manager = [NSFileManager defaultManager];
-    NSArray *photosInFolder = [manager filesInFolder:_folderPath withExtension:@"jpg"];
+    UIBarButtonItem *selectButton = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStyleBordered target:self action:@selector(selectTapped:)];
+    UIBarButtonItem *slideshowButton = [[UIBarButtonItem alloc] initWithTitle:@"Slideshow" style:UIBarButtonItemStyleBordered target:self action:@selector(slideshowTapped:)];
 
-    NSMutableArray *photos = [NSMutableArray array];
-    for (NSString *file in photosInFolder) {
-        [photos addObject:[_folderPath stringByAppendingPathComponent:file]];
+    self.navigationItem.rightBarButtonItems = @[selectButton, slideshowButton];
+
+    [super viewWillAppear:YES];
+}
+
+- (void)slideshowTapped:(UIButton *)sender {
+    JBKenBurnsView *kenView = [[JBKenBurnsView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:kenView];
+    [kenView animateWithImagePaths:[self photoPaths] transitionDuration:5 loop:YES isLandscape:YES];
+}
+
+- (void)selectTapped:(UIButton *)sender {
+    _selectionMode = !_selectionMode;
+    if (_selectionMode) {
+        self.title = @"Select Photos";
+        _selectedIndices = [NSMutableArray array];
+    }else {
+        self.title = @" ";
     }
-    _photos = photos;
-
-    [_gridView reloadData];
-//    self.selectionMode = YES;
-}
-
-- (void)setSelectionMode:(BOOL)selectionMode {
-    _selectionMode = selectionMode;
-    _gridView.editing = selectionMode;
-}
-
-#pragma mark -
-#pragma mark Gridview Datasource
-
-- (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView {
-    return _photos.count;
-}
-
-- (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation {
-    return CGSizeMake(SmallerGridCellSize.width, SmallerGridCellSize.height);
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index {
-    static NSString * CellIdentifier = @"SmallerGridViewCellIdentifier";
-    ORImageViewCell *cell = (ORImageViewCell *)[gridView dequeueReusableCellWithIdentifier:CellIdentifier];
-
-    if (!cell) {
-        cell = [[ORImageViewCell alloc] initWithFrame:CGRectMake(0, 0, SmallerGridCellSize.width, SmallerGridCellSize.height)];
-        cell.reuseIdentifier = CellIdentifier;
+    ORImageViewCell *cell = (ORImageViewCell *)[super GMGridView:gridView cellForItemAtIndex:index];
+    if (_selectionMode) {
+        if ([_selectedIndices containsObject:@(index)]) {
+            [cell setSelected:YES animated:NO];
+        }
+    } else {
+        [cell setSelected:NO animated:NO];
     }
-
-    cell.title = @"";
-
-    NSString *imagePath = _photos[index];
-    cell.image = [UIImage imageWithContentsOfFile:[imagePath stringByReplacingOccurrencesOfString:@"/images/" withString:@"/thumbnails/"]];
     return cell;
 }
 
-
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
     if (_selectionMode) {
-//        [[gridView cellForItemAtIndex:position] set
+        BOOL selected = (![_selectedIndices containsObject:@(position)]);
+        if (selected) {
+            [_selectedIndices addObject:@(position)];
+        }else {
+            [_selectedIndices removeObject:@(position)];
+        }
+        ORImageViewCell *cell = (ORImageViewCell *)[gridView cellForItemAtIndex:position];
+        [cell setSelected:selected animated:YES];
     }else {
-        ORPhotoViewController *slideshow = [[ORPhotoViewController alloc] initWithSlideshowStyle:JDSlideshowStyleView];
-        slideshow.delegate = self;
-        slideshow.photoPaths = _photos;
-
-        [self.navigationController pushViewController:slideshow animated:YES];
-        [slideshow navigateToSlideIndex:position animated:NO];
+        [super GMGridView:gridView didTapOnItemAtIndex:position];
     }
 }
-
-#pragma mark -
-#pragma mark Slideshow
-
-- (void) slideshow:(id<JDSlideshow>)theSlideshow fetchContentForSlideAtIndex:(NSUInteger)index {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    [scrollView addSubview:imageView];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-
-    UIImage *image = [UIImage imageWithContentsOfFile:_photos[index]];
-    scrollView.contentSize = image.size;
-    imageView.image = image;
-
-    [theSlideshow loadView:scrollView forSlideAtIndex:index];
-}
-
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return [[scrollView subviews] objectAtIndex:0];
-}
-
-- (NSUInteger) slideshowNumberOfSlides:(id<JDSlideshow>)theSlideshow {
-    return _photos.count;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
-
 
 @end

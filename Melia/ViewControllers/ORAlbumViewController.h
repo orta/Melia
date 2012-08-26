@@ -6,11 +6,7 @@
 //  Copyright (c) 2012 orta therox. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "GMGridView.h"
-#import "JDSlideshow.h"
-#import "JDSlideshowDelegate.h"
+#import "ORPhotoFolderGridViewController.h"
 
-@interface ORAlbumViewController : UIViewController <GMGridViewActionDelegate, GMGridViewDataSource, JDSlideshowDelegate, UIScrollViewDelegate>
-@property NSString *folderPath;
+@interface ORAlbumViewController : ORPhotoFolderGridViewController
 @end
