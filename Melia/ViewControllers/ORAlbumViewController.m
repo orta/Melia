@@ -33,9 +33,10 @@
 
 - (void)setSelectionMode:(BOOL)selectionMode {
     _selectionMode = selectionMode;
-    
+    [self updateTitle];
+
     if (_selectionMode) {
-        self.title = @"Select Photos";
+        
         _selectedIndices = [NSMutableArray array];
 
         UIBarButtonItem *printsButton = [[UIBarButtonItem alloc] initWithTitle:@"Prints" style:UIBarButtonItemStyleBordered target:self action:@selector(slideshowTapped:)];
@@ -44,8 +45,6 @@
         self.navigationItem.rightBarButtonItems = @[ cancelButton, shareButton, printsButton ];
 
     }else {
-        self.title = @" ";
-
         UIBarButtonItem *selectButton = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleSelect:)];
         UIBarButtonItem *slideshowButton = [[UIBarButtonItem alloc] initWithTitle:@"Slideshow" style:UIBarButtonItemStyleBordered target:self action:@selector(slideshowTapped:)];
         self.navigationItem.rightBarButtonItems = @[ selectButton, slideshowButton ];
@@ -63,6 +62,22 @@
             }
         }
     }    
+}
+
+- (void)updateTitle {
+    if (!_selectionMode) {
+        self.title = @"";
+    } else {
+        if (_selectedIndices.count) {
+            if (_selectedIndices.count == 1) {
+                self.title = @"1 Photo Selected";
+            }else{
+                self.title = [NSString stringWithFormat:@"%i Selected Photos", _selectedIndices.count];
+            }
+        } else {
+            self.title = @"Select Photos";
+        }
+    }
 }
 
 
@@ -89,6 +104,7 @@
     } else {
         [cell setSelected:NO animated:NO];
     }
+    
     return cell;
 }
 
@@ -103,6 +119,9 @@
         }
         ORImageViewCell *cell = (ORImageViewCell *)[gridView cellForItemAtIndex:position];
         [cell setSelected:selected animated:YES];
+
+        [self updateTitle];
+
     }else {
         [super GMGridView:gridView didTapOnItemAtIndex:position];
     }
