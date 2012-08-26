@@ -17,4 +17,6 @@
 
 - (NSArray *)photoPaths;
 
+- (CGPoint)gridContentOffset;
+- (NSArray *)visibleGridCells;
 @end

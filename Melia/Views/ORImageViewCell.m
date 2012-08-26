@@ -30,13 +30,7 @@ static CGFloat ImageBottomMargin = 10;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.opaque = YES;
 
-        CGRect imageFrame = frame;
-        imageFrame.size.width = CGRectGetWidth(self.frame) - ImageContentInsets.left - ImageContentInsets.right;
-        imageFrame.size.height = CGRectGetHeight(self.frame) - ImageContentInsets.bottom - ImageContentInsets.top;
-
-        imageFrame.origin.x = ImageContentInsets.left;
-        imageFrame.origin.y = ImageContentInsets.top;
-        _imageView.frame = imageFrame;
+        _imageView.frame = [self imageFrame];
         [self addSubview:_imageView];
 
         _titleLabel = [[UILabel alloc] init];
@@ -84,13 +78,32 @@ static CGFloat ImageBottomMargin = 10;
     [_imageView setImage:anImage];
 }
 
+- (CGRect)imageFrame {
+    CGRect imageFrame = self.bounds;
+    imageFrame.size.width = CGRectGetWidth(self.frame) - ImageContentInsets.left - ImageContentInsets.right;
+    imageFrame.size.height = CGRectGetHeight(self.frame) - ImageContentInsets.bottom - ImageContentInsets.top;
+
+    imageFrame.origin.x = ImageContentInsets.left;
+    imageFrame.origin.y = ImageContentInsets.top;
+    return imageFrame;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    BOOL duration = animated? 0.3 : 0;
     if (selected) {
+        [UIView animateWithDuration:duration animations:^{
+            _imageView.frame = CGRectInset([self imageFrame], 3, 3);
+        }];
+
         _imageView.layer.backgroundColor = [UIColor whiteColor].CGColor;
         _imageView.layer.borderWidth = 3.0f;
     }else {
         _imageView.layer.backgroundColor = [UIColor clearColor].CGColor;
         _imageView.layer.borderWidth = 0.0f;
+
+        [UIView animateWithDuration:duration animations:^{
+            _imageView.frame = [self imageFrame];
+        }];
     }
 }
 

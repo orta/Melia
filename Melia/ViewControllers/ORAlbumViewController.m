@@ -12,20 +12,43 @@
 #import "ORImageViewCell.h"
 
 @interface ORAlbumViewController(){
-    BOOL _selectionMode;
     NSMutableArray *_selectedIndices;
+    BOOL _selectionMode;
 }
+
+@property BOOL selectionMode;
 @end
 
 @implementation ORAlbumViewController
 
 - (void)viewWillAppear:(BOOL)animated {
-    UIBarButtonItem *selectButton = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStyleBordered target:self action:@selector(selectTapped:)];
-    UIBarButtonItem *slideshowButton = [[UIBarButtonItem alloc] initWithTitle:@"Slideshow" style:UIBarButtonItemStyleBordered target:self action:@selector(slideshowTapped:)];
-
-    self.navigationItem.rightBarButtonItems = @[selectButton, slideshowButton];
-
+    self.selectionMode = NO;
+    
     [super viewWillAppear:YES];
+}
+
+- (BOOL)selectionMode { return _selectionMode; }
+
+- (void)setSelectionMode:(BOOL)selectionMode {
+    _selectionMode = selectionMode;
+    
+    if (_selectionMode) {
+        self.title = @"Select Photos";
+        _selectedIndices = [NSMutableArray array];
+
+
+        UIBarButtonItem *printsButton = [[UIBarButtonItem alloc] initWithTitle:@"Prints" style:UIBarButtonItemStyleBordered target:self action:@selector(slideshowTapped:)];
+        UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStyleBordered target:self action:@selector(slideshowTapped:)];
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleSelect:)];
+        self.navigationItem.rightBarButtonItems = @[shareButton, printsButton, cancelButton ];
+
+    }else {
+        self.title = @" ";
+
+        UIBarButtonItem *selectButton = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleSelect:)];
+        UIBarButtonItem *slideshowButton = [[UIBarButtonItem alloc] initWithTitle:@"Slideshow" style:UIBarButtonItemStyleBordered target:self action:@selector(slideshowTapped:)];
+        self.navigationItem.rightBarButtonItems = @[selectButton, slideshowButton];
+    }
 }
 
 - (void)slideshowTapped:(UIButton *)sender {
@@ -34,14 +57,8 @@
     [kenView animateWithImagePaths:[self photoPaths] transitionDuration:5 loop:YES isLandscape:YES];
 }
 
-- (void)selectTapped:(UIButton *)sender {
-    _selectionMode = !_selectionMode;
-    if (_selectionMode) {
-        self.title = @"Select Photos";
-        _selectedIndices = [NSMutableArray array];
-    }else {
-        self.title = @" ";
-    }
+- (void)toggleSelect:(UIButton *)sender {
+    self.selectionMode = !_selectionMode;
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index {

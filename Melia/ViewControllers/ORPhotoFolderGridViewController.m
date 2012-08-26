@@ -99,6 +99,18 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     [slideshow navigateToSlideIndex:position animated:NO];
 }
 
+- (CGPoint)gridContentOffset {
+    return ((UIScrollView*)[[_gridView subviews]objectAtIndex:0]).contentOffset;
+}
+
+- (NSArray *)visibleGridCells {
+    NSMutableArray *cells = [NSMutableArray array];
+    for (GMGridViewCell *view in [[[_gridView subviews]objectAtIndex:0] subviews]) {
+        [cells addObject:view];
+    }
+    return cells;
+}
+
 #pragma mark -
 #pragma mark Slideshow
 
