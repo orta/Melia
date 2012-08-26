@@ -1,13 +1,17 @@
 PODS:
   - AFNetworking (1.0RC1)
+  - Facebook-iOS-SDK (3.0.8):
+    - SBJson (= 2.2.3)
   - GMGridView (1.1.1)
   - JBKenBurnsView (0.1)
   - Mixpanel-Custom (0.0.2)
+  - SBJson (2.2.3)
   - TestFlightSDK (1.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - Facebook-iOS-SDK
   - GMGridView
-  - JBKenBurnsView (defined in Podfile)
+  - JBKenBurnsView
   - Mixpanel-Custom (defined in Podfile)
   - TestFlightSDK

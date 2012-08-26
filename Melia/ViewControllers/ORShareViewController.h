@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface ORShareViewController : UIViewController
+@interface ORShareViewController : UIViewController <FBLoginViewDelegate>
 
 @property (strong, nonatomic) NSArray* photoPaths;
 

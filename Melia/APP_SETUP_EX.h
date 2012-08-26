@@ -12,4 +12,6 @@ static NSString* APP_SECRET = @"";
 static NSString* TESTFLIGHT_SECRET = @"";
 static NSString* MIXPANEL_TOKEN = @"";
 static NSString* CRASHLYTICS_API_KEY = @"";
-static NSString* ZOOSDK_API_KEY = @""
+static NSString* ZOOSDK_API_KEY = @"";
+static NSString* FACEBOOK_API_KEY = @"";
+static NSString* FACEBOOK_SECRET_KEY = @"";

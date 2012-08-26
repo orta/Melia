@@ -8,7 +8,7 @@
 
 #import "ORImageViewCell.h"
 
-static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 30};
+static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 10};
 
 static CGFloat TitleLabelHeight = 44;
 static CGFloat ImageBottomMargin = 10;
@@ -42,10 +42,12 @@ static CGFloat ImageBottomMargin = 10;
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.textAlignment = UITextAlignmentCenter;
-        _titleLabel.backgroundColor = [UIColor blackColor];
+        _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.opaque = NO;
         _titleLabel.userInteractionEnabled = YES;
-        _titleLabel.numberOfLines = 2;
+
+        _titleLabel.textAlignment = UITextAlignmentCenter;
+        [_titleLabel setNumberOfLines:0];
         [self addSubview:_titleLabel];
     }
     return self;
@@ -59,16 +61,14 @@ static CGFloat ImageBottomMargin = 10;
 - (void)layoutSubviews {
     [super layoutSubviews];
     if ([_title length]) {
-        _titleLabel.frame = CGRectMake(ImageContentInsets.left,
-                                      CGRectGetMaxY(_imageView.frame) + ImageBottomMargin,
-                                      CGRectGetWidth(self.bounds) - ImageContentInsets.left - ImageContentInsets.right,
-                                      TitleLabelHeight);
+        [_titleLabel sizeToFit];
+
+        CGRect titleFrame = _titleLabel.frame;
+        titleFrame = CGRectMake(ImageContentInsets.left, CGRectGetMaxY(_imageView.frame) + ImageBottomMargin, CGRectGetWidth(self.bounds) - ImageContentInsets.left - ImageContentInsets.right, TitleLabelHeight);
+        _titleLabel.frame = titleFrame;
     }
     else {
-        _titleLabel.frame = CGRectMake(ImageContentInsets.left,
-                                      CGRectGetMaxY(_imageView.frame) + ImageBottomMargin,
-                                      CGRectGetWidth(self.bounds) - ImageContentInsets.left - ImageContentInsets.right,
-                                      0);
+        _titleLabel.frame = CGRectNull;
     }
 }
 

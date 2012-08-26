@@ -11,12 +11,43 @@
 #import "APP_SETUP.h"
 
 @interface ORShareViewController ()
-
 @end
 
 @implementation ORShareViewController
 
 - (IBAction)shareFacebook:(id)sender {
+    if (![FBSession openActiveSessionWithAllowLoginUI:YES]) {
+        FBLoginView *loginview = [[FBLoginView alloc] initWithPermissions:@[@"publish_actions"]];
+
+        loginview.frame = CGRectOffset(loginview.frame, 5, 5);
+        loginview.delegate = self;
+
+        [self.view addSubview:loginview];
+        [loginview sizeToFit];
+    }else {
+        [self uploadImageToFacebook];
+    }
+}
+
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    
+    [self uploadImageToFacebook];
+}
+
+- (void)uploadImageToFacebook {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    
+    UIImage *image = [UIImage imageWithContentsOfFile:_photoPaths[0]];
+    [FBRequestConnection startForUploadPhoto:image completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        NSLog(@"Uploaded");
+    }];
 
 }
 
