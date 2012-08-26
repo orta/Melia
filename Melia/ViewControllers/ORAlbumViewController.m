@@ -14,6 +14,7 @@
 @interface ORAlbumViewController(){
     NSMutableArray *_selectedIndices;
     BOOL _selectionMode;
+    NSString *_originalTitle;
 }
 
 @property BOOL selectionMode;
@@ -22,9 +23,17 @@
 @implementation ORAlbumViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+    if (!_originalTitle) {
+        _originalTitle = self.title;
+    }
     self.selectionMode = NO;
-    
+    [self updateTitle];
     [super viewWillAppear:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    self.title = _originalTitle;
+    [super viewWillDisappear:animated];
 }
 
 

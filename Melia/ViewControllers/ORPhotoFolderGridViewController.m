@@ -72,7 +72,7 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     }
 
     cell.title = @"";
-
+    cell.position = index;
     NSString *imagePath = _photos[index];
     cell.image = [UIImage imageWithContentsOfFile:[imagePath stringByReplacingOccurrencesOfString:@"/images/" withString:@"/thumbnails/"]];
     return cell;

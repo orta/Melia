@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) UIImage *image;
+@property NSInteger position;
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animates;
 - (void)setSelectable:(BOOL)selectable animated:(BOOL)animates;

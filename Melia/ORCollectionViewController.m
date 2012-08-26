@@ -117,9 +117,13 @@ static CGSize GridCellSize = { .width = 360, .height = 300 };
 
 - (void)loadAlbumViewForItemAtIndex:(NSInteger)index animated:(BOOL)animated {
     ORAlbumViewController *controller = [[ORAlbumViewController alloc] init];
+    
     NSString *folderPath = [_folders objectAtIndex:index];
     NSString *docs = [[NSFileManager defaultManager] applicationDocumentsDirectoryPath];
+
+    controller.title = [[[folderPath pathComponents] lastObject] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
     controller.folderPath = [[docs stringByAppendingPathComponent:folderPath] stringByAppendingPathComponent:@"images"];
+
     [self.navigationController pushViewController:controller animated:animated];
 }
 
