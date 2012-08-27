@@ -8,6 +8,7 @@
 
 #import "ORImageViewCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIImageView+ImageRect.h"
 
 static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 10};
 
@@ -85,6 +86,10 @@ static CGFloat ImageBottomMargin = 10;
     imageFrame.origin.x = ImageContentInsets.left;
     imageFrame.origin.y = ImageContentInsets.top;
     return imageFrame;
+}
+
+- (CGRect)frameForImage {
+    return [self  convertRect:[_imageView frameForImage] fromView:_imageView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animates {

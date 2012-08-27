@@ -15,7 +15,6 @@
 #import "AFNetworking.h"
 #import "ORQueuedTransitionalImageView.h"
 
-
 float RetinaImageViewSize = 188;
 float LegacyImageViewSize = 94;
 

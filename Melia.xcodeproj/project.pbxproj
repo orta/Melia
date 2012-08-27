@@ -111,6 +111,7 @@
 		60C480BC15E92A95008CA6D5 /* MeliaNavBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C480BA15E92A95008CA6D5 /* MeliaNavBar@2x.png */; };
 		60D9054315E8F6B6000846E1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D9054215E8F6B6000846E1 /* Twitter.framework */; };
 		60D9054615E8F6BA000846E1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D9054515E8F6BA000846E1 /* MessageUI.framework */; };
+		60E1694E15EC0C870021FB07 /* ORMailEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E1694D15EC0C860021FB07 /* ORMailEnvelope.m */; };
 		60F17E0015D30BEF0072FA37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17DFF15D30BEF0072FA37 /* UIKit.framework */; };
 		60F17E0215D30BEF0072FA37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17E0115D30BEF0072FA37 /* Foundation.framework */; };
 		60F17E0415D30BEF0072FA37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F17E0315D30BEF0072FA37 /* CoreGraphics.framework */; };
@@ -122,6 +123,7 @@
 		60F17E1E15D30DBE0072FA37 /* ORAlbumFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F17E1D15D30DBE0072FA37 /* ORAlbumFinderViewController.m */; };
 		60F26E1815E977AC000F940A /* ORFacebookSharer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F26E1715E977AC000F940A /* ORFacebookSharer.m */; };
 		60F84EFE15EA913B00A8C46F /* ORPhotoFolderGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F84EFD15EA913B00A8C46F /* ORPhotoFolderGridViewController.m */; };
+		60F84F3215EAE11C00A8C46F /* UIImageView+ImageRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F84F3115EAE11C00A8C46F /* UIImageView+ImageRect.m */; };
 		60FCFD4415DEE34800E8EA5D /* ORQueuedTransitionalImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FCFD4315DEE34800E8EA5D /* ORQueuedTransitionalImageView.m */; };
 /* End PBXBuildFile section */
 
@@ -253,6 +255,8 @@
 		60C480BA15E92A95008CA6D5 /* MeliaNavBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MeliaNavBar@2x.png"; sourceTree = "<group>"; };
 		60D9054215E8F6B6000846E1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		60D9054515E8F6BA000846E1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		60E1694C15EC0C860021FB07 /* ORMailEnvelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMailEnvelope.h; path = ViewControllers/ORMailEnvelope.h; sourceTree = "<group>"; };
+		60E1694D15EC0C860021FB07 /* ORMailEnvelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMailEnvelope.m; path = ViewControllers/ORMailEnvelope.m; sourceTree = "<group>"; };
 		60F17DFB15D30BEF0072FA37 /* The Melia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Melia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F17DFF15D30BEF0072FA37 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60F17E0115D30BEF0072FA37 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -272,6 +276,8 @@
 		60F26E1715E977AC000F940A /* ORFacebookSharer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORFacebookSharer.m; path = Util/ORFacebookSharer.m; sourceTree = "<group>"; };
 		60F84EFC15EA913B00A8C46F /* ORPhotoFolderGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORPhotoFolderGridViewController.h; path = ViewControllers/ORPhotoFolderGridViewController.h; sourceTree = "<group>"; };
 		60F84EFD15EA913B00A8C46F /* ORPhotoFolderGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORPhotoFolderGridViewController.m; path = ViewControllers/ORPhotoFolderGridViewController.m; sourceTree = "<group>"; };
+		60F84F3015EAE11C00A8C46F /* UIImageView+ImageRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ImageRect.h"; sourceTree = "<group>"; };
+		60F84F3115EAE11C00A8C46F /* UIImageView+ImageRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ImageRect.m"; sourceTree = "<group>"; };
 		60FCFD4215DEE34800E8EA5D /* ORQueuedTransitionalImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORQueuedTransitionalImageView.h; path = Views/ORQueuedTransitionalImageView.h; sourceTree = "<group>"; };
 		60FCFD4315DEE34800E8EA5D /* ORQueuedTransitionalImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORQueuedTransitionalImageView.m; path = Views/ORQueuedTransitionalImageView.m; sourceTree = "<group>"; };
 		CB3D300365B94EB8975BC4E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -493,6 +499,7 @@
 		60F17E0515D30BEF0072FA37 /* Melia */ = {
 			isa = PBXGroup;
 			children = (
+				60F84F2F15EAE10F00A8C46F /* Categories */,
 				60C480B015E928C9008CA6D5 /* Resources */,
 				6008042D15DDACEC004CFEEB /* APP_SETUP_EX.h */,
 				6008042E15DDACED004CFEEB /* APP_SETUP.h */,
@@ -524,19 +531,18 @@
 		60F17E1F15D30DC20072FA37 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				60F84F2D15EADE1100A8C46F /* Sync */,
 				6058DC0B15DD99E100D35A13 /* Popovers */,
-				60F17E1C15D30DBE0072FA37 /* ORAlbumFinderViewController.h */,
-				60F17E1D15D30DBE0072FA37 /* ORAlbumFinderViewController.m */,
-				601C19E715D6CF9B001E4398 /* ORAlbumSyncViewController.h */,
-				601C19E815D6CF9B001E4398 /* ORAlbumSyncViewController.m */,
-				602026C215D7384900284FD5 /* ORAlbumViewController.h */,
-				602026C315D7384900284FD5 /* ORAlbumViewController.m */,
 				60F17E1415D30BEF0072FA37 /* ORCollectionViewController.h */,
 				60F17E1515D30BEF0072FA37 /* ORCollectionViewController.m */,
 				6058DB7815DD8BEA00D35A13 /* ORPhotoViewController.h */,
 				6058DB7915DD8BEA00D35A13 /* ORPhotoViewController.m */,
+				602026C215D7384900284FD5 /* ORAlbumViewController.h */,
+				602026C315D7384900284FD5 /* ORAlbumViewController.m */,
 				60F84EFC15EA913B00A8C46F /* ORPhotoFolderGridViewController.h */,
 				60F84EFD15EA913B00A8C46F /* ORPhotoFolderGridViewController.m */,
+				60E1694C15EC0C860021FB07 /* ORMailEnvelope.h */,
+				60E1694D15EC0C860021FB07 /* ORMailEnvelope.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -559,6 +565,26 @@
 				60C480AC15E924A3008CA6D5 /* ORTexturedBackgroundView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		60F84F2D15EADE1100A8C46F /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				60F17E1C15D30DBE0072FA37 /* ORAlbumFinderViewController.h */,
+				60F17E1D15D30DBE0072FA37 /* ORAlbumFinderViewController.m */,
+				601C19E715D6CF9B001E4398 /* ORAlbumSyncViewController.h */,
+				601C19E815D6CF9B001E4398 /* ORAlbumSyncViewController.m */,
+			);
+			name = Sync;
+			sourceTree = "<group>";
+		};
+		60F84F2F15EAE10F00A8C46F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				60F84F3015EAE11C00A8C46F /* UIImageView+ImageRect.h */,
+				60F84F3115EAE11C00A8C46F /* UIImageView+ImageRect.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -743,6 +769,8 @@
 				60C480AD15E924A3008CA6D5 /* ORTexturedBackgroundView.m in Sources */,
 				60F26E1815E977AC000F940A /* ORFacebookSharer.m in Sources */,
 				60F84EFE15EA913B00A8C46F /* ORPhotoFolderGridViewController.m in Sources */,
+				60F84F3215EAE11C00A8C46F /* UIImageView+ImageRect.m in Sources */,
+				60E1694E15EC0C870021FB07 /* ORMailEnvelope.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

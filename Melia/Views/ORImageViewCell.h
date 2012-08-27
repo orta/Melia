@@ -16,4 +16,5 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animates;
 - (void)setSelectable:(BOOL)selectable animated:(BOOL)animates;
+- (CGRect)frameForImage;
 @end

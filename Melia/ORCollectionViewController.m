@@ -50,6 +50,7 @@ static CGSize GridCellSize = { .width = 360, .height = 300 };
     if(_folders.count == 0){
         [self openFolderChooser];
     }
+    
     if (_folders.count == 1 && !animated) {
         [self loadAlbumViewForItemAtIndex:0 animated:YES];
     }
@@ -127,15 +128,8 @@ static CGSize GridCellSize = { .width = 360, .height = 300 };
     [self.navigationController pushViewController:controller animated:animated];
 }
 
-- (void)GMGridView:(GMGridView *)gridView processDeleteActionForItemAtIndex:(NSInteger)index {
-    NSLog(@"Delete");
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
-
-
 
 @end

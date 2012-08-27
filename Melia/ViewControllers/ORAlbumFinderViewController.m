@@ -97,7 +97,6 @@ static NSString *MeliaHomePage = @"http://jamesmeliaphoto.zenfolio.com/f63488417
         _sameNumberCount = 0;
     }
     _photoCount = _photoCount;
-    NSLog(@" %i ", _photos.count);
 }
 
 - (BOOL)isPasswordPage {

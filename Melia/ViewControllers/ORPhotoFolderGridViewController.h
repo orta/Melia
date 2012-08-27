@@ -14,9 +14,11 @@
 @interface ORPhotoFolderGridViewController : UIViewController <GMGridViewActionDelegate, GMGridViewDataSource, JDSlideshowDelegate, UIScrollViewDelegate>
 
 @property (strong) NSString * folderPath;
+@property (strong) GMGridView *gridView;
 
 - (NSArray *)photoPaths;
 
 - (CGPoint)gridContentOffset;
 - (NSArray *)visibleGridCells;
+- (NSString *)pathForImageAtIndex:(NSInteger)index;
 @end

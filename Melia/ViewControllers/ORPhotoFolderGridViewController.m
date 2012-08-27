@@ -17,7 +17,6 @@
 static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
 @interface ORPhotoFolderGridViewController(){
-    GMGridView *_gridView;
     NSArray *_photos;
 }
 
@@ -73,11 +72,14 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
     cell.title = @"";
     cell.position = index;
-    NSString *imagePath = _photos[index];
-    cell.image = [UIImage imageWithContentsOfFile:[imagePath stringByReplacingOccurrencesOfString:@"/images/" withString:@"/thumbnails/"]];
+    cell.image = [UIImage imageWithContentsOfFile:[self pathForImageAtIndex:index]];
     return cell;
 }
 
+- (NSString *)pathForImageAtIndex:(NSInteger)index {
+    NSString *imagePath = _photos[index];
+    return [imagePath stringByReplacingOccurrencesOfString:@"/images/" withString:@"/thumbnails/"];
+}
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
     ORPhotoViewController *slideshow = [[ORPhotoViewController alloc] initWithSlideshowStyle:JDSlideshowStyleView];
@@ -88,16 +90,19 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     [slideshow navigateToSlideIndex:position animated:NO];
 }
 
+
 - (CGPoint)gridContentOffset {
-    return ((UIScrollView*)[[_gridView subviews]objectAtIndex:0]).contentOffset;
+    return ((UIScrollView*)_gridView ).contentOffset;
 }
 
 - (NSArray *)visibleGridCells {
     NSMutableArray *cells = [NSMutableArray array];
     if (_gridView.subviews.count) {
         for (GMGridViewCell *view in [_gridView  subviews]) {
-            [cells addObject:view];
-        }        
+            if ([view isKindOfClass:[ORImageViewCell class]]) {
+                [cells addObject:view];
+            }
+        }
     }
     return cells;
 }
