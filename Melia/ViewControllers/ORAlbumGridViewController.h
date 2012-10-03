@@ -11,7 +11,7 @@
 #import "JDSlideshow.h"
 #import "JDSlideshowDelegate.h"
 
-@interface ORPhotoFolderGridViewController : UIViewController <GMGridViewActionDelegate, GMGridViewDataSource, JDSlideshowDelegate, UIScrollViewDelegate>
+@interface ORAlbumGridViewController : UIViewController <GMGridViewActionDelegate, GMGridViewDataSource, UIScrollViewDelegate>
 
 @property (strong) NSString * folderPath;
 @property (strong) GMGridView *gridView;

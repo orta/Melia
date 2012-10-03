@@ -8,11 +8,11 @@
 //
 
 #import "ORAlbumViewController.h"
-#import "JBKenBurnsView.h"
 #import "ORImageViewCell.h"
 #import "UIImageView+ImageRect.h"
 #import "GMGridView.h"
 #import "ORMailEnvelope.h"
+#import "ORKenBurnsSlideshowViewController.h"
 
 @interface ORAlbumViewController(){
     NSMutableArray *_selectedIndices;
@@ -32,6 +32,11 @@
     self.selectionMode = NO;
     [self updateTitle];
     [super viewWillAppear:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+//    [self slideshowTapped:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -91,9 +96,12 @@
 }
 
 - (void)slideshowTapped:(UIButton *)sender {
-    JBKenBurnsView *kenView = [[JBKenBurnsView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:kenView];
-    [kenView animateWithImagePaths:[self photoPaths] transitionDuration:5 loop:YES isLandscape:YES];
+    ORKenBurnsSlideshowViewController *slideshowVC = [[ORKenBurnsSlideshowViewController alloc] initWithImagePaths:[self photoPaths]];
+    
+
+    [self presentViewController:slideshowVC animated:YES completion:^{
+
+    }];
 }
 
 - (void)toggleSelect:(UIButton *)sender {
@@ -138,14 +146,12 @@
     NSArray *imageViews = [self imageViewCopiesForVisibleCells];
     
     ORMailEnvelopeViewController *mailVC = (ORMailEnvelopeViewController *)[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"envelopeView"];
-
-    [self addChildViewController:mailVC];
-    [mailVC willMoveToParentViewController:self];
-    [mailVC loadView];
-
+//    [self presentViewController:mailVC animated:YES completion:^{
     [self.view addSubview:mailVC.view];
-    [mailVC didMoveToParentViewController:self];
     [mailVC animateViewInWithImageViews:imageViews];
+
+//    }];
+
 }
 
 
@@ -185,5 +191,10 @@
 
     return imageViewCopies;
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return YES;
+}
+
 
 @end

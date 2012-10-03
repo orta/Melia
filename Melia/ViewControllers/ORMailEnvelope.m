@@ -14,8 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIView *envelopeView;
 @end
 
+static CGFloat ORImageMovementDuration = 0.5;
 static CGFloat ORImagePullOutOfEnvelopeDistance = 30;
-static CGFloat ORImageSideMargin = 30;
+static CGFloat ORImageSideMargin = 40;
 
 @implementation ORMailEnvelopeViewController
 
@@ -28,16 +29,34 @@ static CGFloat ORImageSideMargin = 30;
 
 - (void)animateViewInWithImageViews:(NSArray *)imageViews {
     self.view.alpha = 1;
+    CGFloat yPosition = CGRectGetMinY(_envelopeView.frame) - ORImagePullOutOfEnvelopeDistance;
+    CGFloat envelopeSpace = CGRectGetWidth(_envelopeView.frame) - ORImageSideMargin ;
+
     for (UIImageView *imageView in imageViews) {
         NSInteger index = [imageViews indexOfObject:imageView];
-        CGFloat yPosition = CGRectGetMinY(_envelopeView.frame) - ORImagePullOutOfEnvelopeDistance;
-        CGFloat xPosition = ORImageSideMargin + _envelopeView.frame.origin.x + (CGRectGetWidth(_envelopeView.frame) / imageViews.count) * index;
+        CGFloat xPosition = 40 + ORImageSideMargin + _envelopeView.frame.origin.x + (envelopeSpace / imageViews.count) * index + 1;
 
         [self.view insertSubview:imageView aboveSubview:_backgroundView];
 
-        CAAnimation *animation = [self animationForImageView:imageView toCenterPoint:CGPointMake(xPosition, yPosition)];
-        [imageView.layer addAnimation:animation forKey:@"MoveIntoEnvelope"];
+        CAAnimation *movementAnimation = [self animationForImageView:imageView toCenterPoint:CGPointMake(xPosition, yPosition)];
+        CAAnimation *rotationAnimation = [self randomRotationAnimation];
+
+        [imageView.layer addAnimation:movementAnimation forKey:@"MoveIntoEnvelope"];
+        [imageView.layer addAnimation:rotationAnimation forKey:@"RotateForEnvelope"];
     }
+}
+
+- (CABasicAnimation *)randomRotationAnimation {
+    CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotation.fromValue = @(0);
+    CGFloat random = arc4random() % 40;
+    CGFloat toRotation =  ((random) / 100)  - 0.2 ;
+    NSLog(@" %f ", toRotation);
+    rotation.toValue = @(toRotation);
+    rotation.duration = ORImageMovementDuration;
+    rotation.removedOnCompletion = NO;
+    rotation.fillMode = kCAFillModeForwards;
+    return rotation;
 }
 
 - (CAKeyframeAnimation *)animationForImageView:(UIImageView *)imageView toCenterPoint:(CGPoint)endPoint {
@@ -46,7 +65,7 @@ static CGFloat ORImageSideMargin = 30;
     pathAnimation.calculationMode = kCAAnimationPaced;
     pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.removedOnCompletion = NO;
-    pathAnimation.duration = 3;
+    pathAnimation.duration = ORImageMovementDuration;
 
     // Use the two centerpoints of the rects to set up the bezier curve
     CGRect imageViewRect = imageView.frame;
@@ -67,6 +86,10 @@ static CGFloat ORImageSideMargin = 30;
     [self setBackgroundView:nil];
     [self setEnvelopeView:nil];
     [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return YES;
 }
 
 @end

@@ -110,10 +110,8 @@ static NSString *MeliaHomePage = @"http://jamesmeliaphoto.zenfolio.com/f63488417
     [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
-
 
 @end

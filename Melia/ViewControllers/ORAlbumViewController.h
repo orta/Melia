@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 orta therox. All rights reserved.
 //
 
-#import "ORPhotoFolderGridViewController.h"
+#import "ORAlbumGridViewController.h"
 
-@interface ORAlbumViewController : ORPhotoFolderGridViewController
+@interface ORAlbumViewController : ORAlbumGridViewController
 @end

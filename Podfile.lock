@@ -1,17 +1,29 @@
+
 PODS:
-  - AFNetworking (1.0RC1)
-  - Facebook-iOS-SDK (3.0.8):
-    - SBJson (= 2.2.3)
-  - GMGridView (1.1.1)
-  - JBKenBurnsView-custom (0.0.2)
-  - Mixpanel (1.3.1)
-  - SBJson (2.2.3)
-  - TestFlightSDK (1.0)
+- AFNetworking (1.0)
+- Facebook-iOS-SDK (3.1.0)
+- GMGridView (1.1.1)
+- Mixpanel (1.3.1)
+- PSTCollectionView (0.0.1)
+- SwipeView (1.2.7)
+- TestFlightSDK (1.1)
 
 DEPENDENCIES:
-  - AFNetworking
-  - Facebook-iOS-SDK
-  - GMGridView
-  - JBKenBurnsView-custom (defined in Podfile)
-  - Mixpanel
-  - TestFlightSDK
+- AFNetworking
+- Facebook-iOS-SDK
+- GMGridView
+- Mixpanel
+- PSTCollectionView
+- SwipeView
+- TestFlightSDK
+
+SPEC CHECKSUMS:
+  AFNetworking: e9e0911a6afd846691672a4d832fb531e8bae72f
+  Facebook-iOS-SDK: 2c94c251086e49bbdc3b99c188ffa8f984fea91a
+  GMGridView: 6ef84c7fb99a2b28dc6fb2ddd36a8ef96360fa5e
+  Mixpanel: 4dbc198bf441400be45f5b77ad30e2ddc7cee3af
+  PSTCollectionView: 6ffdbe7ee588d7e9957836c38154f617356d4441
+  SwipeView: 787497471084948570f1fdf725e86613d8a156e8
+  TestFlightSDK: a62347405c04307e2953eda4b8cc465ee51a6c90
+
+COCOAPODS: 0.14.0

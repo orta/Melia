@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ZooZSDK/ZooZ.h>
 
-@interface ORBuyViewController : UIViewController <ZooZPaymentCallbackDelegate>
+@interface ORBuyViewController : UIViewController 
 
 - (IBAction)buyArtwork:(id)sender;
 

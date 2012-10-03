@@ -45,11 +45,12 @@ float LegacyImageViewSize = 94;
     [[NSFileManager defaultManager] createDirectoryAtPath:albumPath withIntermediateDirectories:YES attributes:nil error:nil];
     [[NSFileManager defaultManager] createDirectoryAtPath:[albumPath stringByReplacingOccurrencesOfString:@"/images" withString:@"/thumbnails"] withIntermediateDirectories:YES attributes:nil error:nil];
 
-
     for (NSString *url in _urls) {
         NSString *address = [PHOTOG_URL stringByAppendingString:url];
         NSString *localPath = [NSString stringWithFormat:@"%@/%i.jpg", albumPath, count];
-        address = [address stringByReplacingOccurrencesOfString:@"10.jpg" withString:@"4.jpg"];
+        address = [address stringByReplacingOccurrencesOfString:@"10.jpg" withString:@"5.jpg"];
+
+        NSLog(@" %@", address);
 
         ORFileDownloadOperation *fileDownloadOperation = [ORFileDownloadOperation fileDownloadFromURL:[NSURL URLWithString:address] toLocalPath:localPath];
 

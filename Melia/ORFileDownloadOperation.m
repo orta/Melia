@@ -9,13 +9,17 @@
 #import "ORFileDownloadOperation.h"
 #import "NSFileManager+SkipBackup.h"
 
+@interface ORFileDownloadOperation ()
+@property (strong) NSString *localPath;
+@end
+
 @implementation ORFileDownloadOperation
-@synthesize shouldBackupFileToCloud;
 
 + (ORFileDownloadOperation *)fileDownloadFromURL:(NSURL *)url toLocalPath:(NSString *)localPath {
     NSURLRequest *request= [NSURLRequest requestWithURL:url];
     ORFileDownloadOperation *this = [[self alloc] initWithRequest:request];
-    this.responseFilePath = localPath;
+    this.localPath = localPath;
+    this.outputStream = [NSOutputStream outputStreamToFileAtPath:localPath append:NO];
     this.shouldBackupFileToCloud = NO;
     return this;
 }
@@ -40,7 +44,7 @@
         } else {
             if (success) {
                 if (!this.shouldBackupFileToCloud) {
-                    [[NSFileManager defaultManager] addSkipBackupAttributeToFileAtPath:self.responseFilePath];
+                    [[NSFileManager defaultManager] addSkipBackupAttributeToFileAtPath:self.localPath];
                 }
                 
                 dispatch_async(this.successCallbackQueue ? this.successCallbackQueue : dispatch_get_main_queue(), ^{

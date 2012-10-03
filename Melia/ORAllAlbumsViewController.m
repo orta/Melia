@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 orta therox. All rights reserved.
 //
 
-#import "ORCollectionViewController.h"
+#import "ORAllAlbumsViewController.h"
 #import "ORAlbumSyncViewController.h"
 #import "ORAlbumFinderViewController.h"
 #import "NSFileManager+PathHandling.h"
@@ -15,14 +15,14 @@
 
 static CGSize GridCellSize = { .width = 360, .height = 300 };
 
-@interface ORCollectionViewController (){
+@interface ORAllAlbumsViewController (){
     GMGridView *_gridView;
     NSArray *_folders;
 }
 
 @end
 
-@implementation ORCollectionViewController
+@implementation ORAllAlbumsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

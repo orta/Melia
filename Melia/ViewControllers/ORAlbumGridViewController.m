@@ -6,23 +6,21 @@
 //  Copyright (c) 2012 orta therox. All rights reserved.
 //
 
-#import "ORPhotoFolderGridViewController.h"
-#import "ORCollectionViewController.h"
+#import "ORAlbumGridViewController.h"
 #import "ORAlbumSyncViewController.h"
 #import "ORAlbumFinderViewController.h"
 #import "NSFileManager+PathHandling.h"
 #import "ORImageViewCell.h"
-#import "ORPhotoViewController.h"
 
 static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 
-@interface ORPhotoFolderGridViewController(){
+@interface ORAlbumGridViewController(){
     NSArray *_photos;
 }
 
 @end
 
-@implementation ORPhotoFolderGridViewController
+@implementation ORAlbumGridViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,12 +80,12 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
 }
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
-    ORPhotoViewController *slideshow = [[ORPhotoViewController alloc] initWithSlideshowStyle:JDSlideshowStyleView];
-    slideshow.delegate = self;
-    slideshow.photoPaths = _photos;
-
-    [self.navigationController pushViewController:slideshow animated:YES];
-    [slideshow navigateToSlideIndex:position animated:NO];
+//    ORPhotoViewController *slideshow = [[ORPhotoViewController alloc] initWithSlideshowStyle:JDSlideshowStyleView];
+//    slideshow.delegate = self;
+//    slideshow.photoPaths = _photos;
+//
+//    [self.navigationController pushViewController:slideshow animated:YES];
+//    [slideshow navigateToSlideIndex:position animated:NO];
 }
 
 
@@ -106,36 +104,5 @@ static CGSize SmallerGridCellSize = { .width = 140, .height = 120 };
     }
     return cells;
 }
-
-#pragma mark -
-#pragma mark Slideshow
-
-- (void) slideshow:(id<JDSlideshow>)theSlideshow fetchContentForSlideAtIndex:(NSUInteger)index {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    [scrollView addSubview:imageView];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-
-    UIImage *image = [UIImage imageWithContentsOfFile:_photos[index]];
-    scrollView.contentSize = image.size;
-    imageView.image = image;
-
-    [theSlideshow loadView:scrollView forSlideAtIndex:index];
-}
-
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return [[scrollView subviews] objectAtIndex:0];
-}
-
-- (NSUInteger) slideshowNumberOfSlides:(id<JDSlideshow>)theSlideshow {
-    return _photos.count;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
-
 
 @end

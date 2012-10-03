@@ -10,6 +10,6 @@
 #import "ORAlbumSyncViewController.h"
 #import "GMGridView.h"
 
-@interface ORCollectionViewController : UIViewController <ORAlbumFinderDelegate, ORAlbumSyncDelegate, GMGridViewActionDelegate, GMGridViewDataSource>
+@interface ORAllAlbumsViewController : UIViewController <ORAlbumFinderDelegate, ORAlbumSyncDelegate, GMGridViewActionDelegate, GMGridViewDataSource>
 
 @end
